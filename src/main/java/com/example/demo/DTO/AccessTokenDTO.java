@@ -10,6 +10,7 @@ public class AccessTokenDTO {
 
     public String getClient_id () {
         return client_id;
+
     }
 
     public void setClient_id (String client_id) {

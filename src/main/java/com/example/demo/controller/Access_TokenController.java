@@ -10,9 +10,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import sun.tools.jstat.Token;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 @Controller
@@ -32,30 +35,27 @@ public class Access_TokenController {
     @GetMapping("/callback")
     public String callback (@RequestParam(name = "code") String code,
                             @RequestParam(name = "state") String state,
-                            HttpServletRequest request) {
+                            HttpServletRequest request,
+                            HttpServletResponse response) {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO ();
         accessTokenDTO.setCode (code);
         accessTokenDTO.setClient_id (clientID);
         accessTokenDTO.setState (state);
-
         accessTokenDTO.setClient_secret (clientSecret);
         accessTokenDTO.setRedirect_uri (redirecturi);
         String Access_token = githubProvider.getAccessToken (accessTokenDTO);
         GithubUserDTO githubUserDTO = githubProvider.getUser (Access_token);
         if (githubUserDTO != null) {
-//            UserMapper userMapper=new UserMapper () {
-//                @Override
-//                @Insert("insert into user (name,account_id,token,time_create,time_modify) values (#{name},#{accountId},#{token},#{time_create},#{time_modify}")
-//                public void inset (User user) { }
-//            };
             User user = new User ();
-            user.setToken (UUID.randomUUID ().toString ());
+            String token = UUID.randomUUID ().toString ();
+            user.setToken (token);
             user.setName (githubUserDTO.getName ());
             user.setAccountId (String.valueOf (githubUserDTO.getId ()));
             user.setTime_create (System.currentTimeMillis ());
             user.setTime_modify (user.getTime_create ());
-           userMapper.insert (user);
-            request.getSession ().setAttribute ("user", githubUserDTO);
+            userMapper.insert (user);
+            response.addCookie (new Cookie ("Token",token ));
+//            request.getSession ().setAttribute ("user", githubUserDTO);
             return "redirect:/";
         }
 
