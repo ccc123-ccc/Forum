@@ -21,48 +21,54 @@ public class publishController {
     QuestionMapper questionMapper;
     @Autowired
     private UserMapper userMapper;
+
     @GetMapping("/publish")
-    public String publish(){
+    public String publish () {
         return "publish";
     }
+
     @PostMapping("/publish")
-    public String postPublish(
+    public String postPublish (
             @RequestParam("title") String title,
             @RequestParam("description") String description,
             @RequestParam("tag") String tag,
             HttpServletRequest request,
             Model model
-            ){
-        model.addAttribute ("title",title);
-        model.addAttribute ("description",description);
-        model.addAttribute ("tag",tag);
-        if(title==null||title==""){
-            model.addAttribute ("error","输入的标题不能为空");
-            return "publish";
-        }if(description==null||description==""){
-            model.addAttribute ("error","输入的内容不能为空");
-            return "publish";
-        }if(tag==null||tag==""){
-            model.addAttribute ("error","输入的标签不能为空");
+    ) {
+        model.addAttribute ("title", title);
+        model.addAttribute ("description", description);
+        model.addAttribute ("tag", tag);
+        if (title == null || title == "") {
+            model.addAttribute ("error", "输入的标题不能为空");
             return "publish";
         }
-        Cookie[] cookies = request.getCookies ();
-        String token=null;
-        User user=null;
-        for(Cookie cookie:cookies){
-            if(cookie.getName ().equals ("Token")){
-                token=cookie.getValue ();
-                user=userMapper.findByToken(token);
-                if(user!=null){
-                    request.getSession ().setAttribute ("userPublish",user);
+        if (description == null || description == "") {
+            model.addAttribute ("error", "输入的内容不能为空");
+            return "publish";
+        }
+        if (tag == null || tag == "") {
+            model.addAttribute ("error", "输入的标签不能为空");
+            return "publish";
+        }
+        String token = null;
+        User user = null;
+        if (request.getCookies () != null) {
+            Cookie[] cookies = request.getCookies ();
+            for (Cookie cookie : cookies) {
+                if (cookie.getName ().equals ("Token")) {
+                    token = cookie.getValue ();
+                    user = userMapper.findByToken (token);
+                    if (user != null) {
+                        request.getSession ().setAttribute ("userPublish", user);
 
+                    }
+                    break;
                 }
-                break;
             }
         }
 
-        if(user==null){
-            model.addAttribute ("error","用户未登陆");
+        if (user == null) {
+            model.addAttribute ("error", "用户未登陆");
             return "publish";
         }
         Question question = new Question ();
@@ -72,6 +78,7 @@ public class publishController {
         question.setTime_create (System.currentTimeMillis ());
         question.setTime_modify (question.getTime_create ());
         question.setTag (tag);
+        question.setAvatar_url (user.getAvatar_url ());
         questionMapper.insert (question);
 
         return "redirect:/";

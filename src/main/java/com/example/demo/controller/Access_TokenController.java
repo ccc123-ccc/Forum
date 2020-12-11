@@ -53,6 +53,7 @@ public class Access_TokenController {
             user.setAccountId (String.valueOf (githubUserDTO.getId ()));
             user.setTime_create (System.currentTimeMillis ());
             user.setTime_modify (user.getTime_create ());
+            user.setAvatar_url (githubUserDTO.getAvatar_url ());
             userMapper.insert (user);
             response.addCookie (new Cookie ("Token",token ));
 //            request.getSession ().setAttribute ("user", githubUserDTO);

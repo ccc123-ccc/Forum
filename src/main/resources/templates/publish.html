@@ -3,8 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 
-
-
 <head>
     <title> BzzB </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -15,7 +13,7 @@
 </head>
 <body>
 <nav class="navbar navbar-default">
-    <div class="container-fluid " >
+    <div class="container-fluid ">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -43,14 +41,12 @@
                 </li>
                 <li class="dropdown" th:if="${session.user!=null}">
 
-                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true"
+                    <a href="" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="true" th:text="${session.user.getName()}"> <span class="caret"></span></a>
-                    <ul class="drop down-menu">
-                        <li><a href="#">消息中心</a></li>
-                        <li><a href="#">个人资料</a></li>
-                        <li><a href="#">退出登录</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#">Separated link</a></li>
+                    <ul class="dropdown-menu">
+                        <li><a href="">消息中心</a></li>
+                        <li><a href="">个人资料</a></li>
+                        <li><a href="">退出登录</a></li>
                     </ul>
                 </li>
 
@@ -66,7 +62,7 @@
 </html>
 
 </nav>
-<div class="container-fluid main" >
+<div class="container-fluid main">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2><span class="glyphicon glyphicon-plus" aira-hidden="ture"></span> 发起</h2>
@@ -75,7 +71,8 @@
             <form action="/publish" method="post">
                 <div class="form-group">
                     <label for="title">问题标题（简单扼要）：</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="问题标题..." th:value="${title}">
+                    <input type="text" class="form-control" id="title" name="title" placeholder="问题标题..."
+                           th:value="${title}">
                 </div>
                 <div class="form-group">
                     <label for="title">问题补充（必填，请参照右侧提示）:</label>
