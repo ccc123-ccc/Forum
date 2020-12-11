@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.DTO.Question;
+import com.example.demo.model.Question;
 import com.example.demo.mapper.QuestionMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
-public class publishController {
+public class QuestionController {
     @Autowired
     QuestionMapper questionMapper;
     @Autowired
@@ -73,11 +73,12 @@ public class publishController {
         }
         Question question = new Question ();
         question.setTitle (title);
-        question.setCreator (user.getName ());
+        question.setCreator (user.getId ());
         question.setDescription (description);
         question.setTime_create (System.currentTimeMillis ());
         question.setTime_modify (question.getTime_create ());
         question.setTag (tag);
+//        question.setId (user.getId ());
         question.setAvatar_url (user.getAvatar_url ());
         questionMapper.insert (question);
 
