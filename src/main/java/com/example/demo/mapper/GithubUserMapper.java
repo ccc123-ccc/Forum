@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 //@repository
 @Mapper
-public interface UserMapper {
+public interface GithubUserMapper {
     @Insert("insert into user (name,account_id,token,time_create,avatar_url,time_modify) values(#{name},#{accountId},#{token},#{time_create},#{avatar_url},#{time_modify})")
 //    @Insert("insert into user (name,account_id,token,time_create,time_modify) values (#{name},#{accountId},#{token},#{time_create},#{time_modify}")
     void insert(User user);

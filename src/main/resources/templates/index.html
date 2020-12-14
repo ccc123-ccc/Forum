@@ -6,7 +6,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" href="css/demo.css"/>
+    <link rel="stylesheet" href="css/demo1.css"/>
     <script src="js/bootstrap.min.js" type="application/javascript"></script>
 </head>
 <body>
@@ -21,7 +21,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/" > BzzB </a>
+            <a class="navbar-brand" href="/"> BzzB </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,18 +61,40 @@
             <h2><span class="glyphicon glyphicon-align-left" aira-hidden="ture"></span> 发现 </h2>
             <hr>
 
-            <div class="media">
+            <div class="media" th:each="question:${pagesList.questionList}">
                 <div class="media-left">
                     <a href="#">
-                        <img class="media-object" src="https://avatars1.githubusercontent.com/u/59076130?v=4">
+                        <img class="media-object"
+                             src="https://api.jikipedia.com/upload/a4f43e84ae1231adce0552f4c5e75d8b_75.jpg"
+                             height="60px" width="60px">
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">怎么快速学会Spring Boot 开发</h4>
-                    点击进入bzzb课堂<br>
-                    <span class="text-desc">发表了文章 • 0 个评论 • 15 次浏览 • 1 小时前</span>
+                    <h4 class="media-heading" th:text="${question.title}"></h4>
+                    <span th:text="${question.description}"></span><br>
+                    <span class="text-desc"><span th:text="${question.comment_count}"></span>个评论 • <span
+                            th:text="${question.view_count}"></span> 次浏览 • <span
+                            th:text="${#dates.format(question.time_create,'yyyy-MM-dd HH:mm')}"></span></span>
                 </div>
             </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li th:each="page:${pagesList.pages}" th:class="${pagesList.page==page}?'active':''"><a
+                            th:href="@{/(page=${page})}"
+                            th:text="${page}"></a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <h3>热门话题</h3>

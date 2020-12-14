@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.DTO.AccessTokenDTO;
 import com.example.demo.DTO.GithubUserDTO;
-import com.example.demo.mapper.UserMapper;
+import com.example.demo.mapper.GithubUserMapper;
 import com.example.demo.model.User;
 import com.example.demo.provider.GithubProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import sun.tools.jstat.Token;
 
-import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,7 +27,7 @@ public class Access_TokenController {
     @Value("${github.redirect.uri}")
     private String redirecturi;
     @Autowired
-    private UserMapper userMapper;
+    private GithubUserMapper githubUserMapper;
 
 
     @GetMapping("/callback")
@@ -54,7 +52,7 @@ public class Access_TokenController {
             user.setTime_create (System.currentTimeMillis ());
             user.setTime_modify (user.getTime_create ());
             user.setAvatar_url (githubUserDTO.getAvatar_url ());
-            userMapper.insert (user);
+            githubUserMapper.insert (user);
             response.addCookie (new Cookie ("Token",token ));
 //            request.getSession ().setAttribute ("user", githubUserDTO);
             return "redirect:/";

@@ -1,8 +1,9 @@
 package com.example.demo.service;
 
+import com.example.demo.DTO.PagesDTO;
 import com.example.demo.DTO.QuestionDTO;
 import com.example.demo.mapper.QuestionMapper;
-import com.example.demo.mapper.UserMapper;
+import com.example.demo.mapper.GithubUserMapper;
 import com.example.demo.model.Question;
 import com.example.demo.model.User;
 import org.springframework.beans.BeanUtils;
@@ -15,20 +16,25 @@ import java.util.List;
 @Service
 public class QuestionService {
     @Autowired
-    private UserMapper userMapper;
+    private GithubUserMapper githubUserMapper;
     @Autowired
     private QuestionMapper questionMapper;
 
-    public List<QuestionDTO> list () {
-        List<Question> questions=questionMapper.list ();
-        List<QuestionDTO> questionDTOList=new ArrayList<> ();
+    public PagesDTO list (Integer page, Integer size) {
+        Integer offset = (page - 1) * size;
+        List<Question> questions = questionMapper.list (offset, size);
+        List<QuestionDTO> questionDTOList = new ArrayList<> ();
+        PagesDTO pagesDTO = new PagesDTO ();
         for (Question question : questions) {
-            User user=userMapper.findById(question.getCreator ());
-            QuestionDTO questionDTO=new QuestionDTO ();
+            User user = githubUserMapper.findById (question.getCreator ());
+            QuestionDTO questionDTO = new QuestionDTO ();
             BeanUtils.copyProperties (question, questionDTO);
             questionDTO.setUser (user);
-            questionDTOList.add(questionDTO);
+            questionDTOList.add (questionDTO);
         }
-        return  questionDTOList;
+        pagesDTO.setQuestionList (questionDTOList);
+        Integer count=questionMapper.count ();
+        pagesDTO.setPages(page,size,count);
+        return pagesDTO;
     }
 }

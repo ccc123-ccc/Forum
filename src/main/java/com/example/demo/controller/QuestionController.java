@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Question;
 import com.example.demo.mapper.QuestionMapper;
-import com.example.demo.mapper.UserMapper;
+import com.example.demo.mapper.GithubUserMapper;
 import com.example.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,11 +20,11 @@ public class QuestionController {
     @Autowired
     QuestionMapper questionMapper;
     @Autowired
-    private UserMapper userMapper;
+    private GithubUserMapper githubUserMapper;
 
     @GetMapping("/publish")
     public String publish () {
-        return "publish";
+        return "question";
     }
 
     @PostMapping("/publish")
@@ -40,15 +40,15 @@ public class QuestionController {
         model.addAttribute ("tag", tag);
         if (title == null || title == "") {
             model.addAttribute ("error", "输入的标题不能为空");
-            return "publish";
+            return "question";
         }
         if (description == null || description == "") {
             model.addAttribute ("error", "输入的内容不能为空");
-            return "publish";
+            return "question";
         }
         if (tag == null || tag == "") {
             model.addAttribute ("error", "输入的标签不能为空");
-            return "publish";
+            return "question";
         }
         String token = null;
         User user = null;
@@ -57,7 +57,7 @@ public class QuestionController {
             for (Cookie cookie : cookies) {
                 if (cookie.getName ().equals ("Token")) {
                     token = cookie.getValue ();
-                    user = userMapper.findByToken (token);
+                    user = githubUserMapper.findByToken (token);
                     if (user != null) {
                         request.getSession ().setAttribute ("userPublish", user);
 
@@ -69,7 +69,7 @@ public class QuestionController {
 
         if (user == null) {
             model.addAttribute ("error", "用户未登陆");
-            return "publish";
+            return "question";
         }
         Question question = new Question ();
         question.setTitle (title);
