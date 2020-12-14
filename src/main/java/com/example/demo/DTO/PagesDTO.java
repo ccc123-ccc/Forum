@@ -35,7 +35,7 @@ public class PagesDTO {
             if (page - i > 0) {
                 pages.add (0, page - i);
             }
-            if (page + i < totalPages) {
+            if (page + i <=totalPages) {
                 pages.add (page + i);
             }
         }

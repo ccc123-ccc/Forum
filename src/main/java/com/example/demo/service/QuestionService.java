@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -34,6 +36,24 @@ public class QuestionService {
         }
         pagesDTO.setQuestionList (questionDTOList);
         Integer count=questionMapper.count ();
+        pagesDTO.setPages(page,size,count);
+        return pagesDTO;
+    }
+
+    public PagesDTO list (Integer id, Integer page, Integer size) {
+        Integer offset = (page - 1) * size;
+        List<Question> questions = questionMapper.listById (id,offset, size);
+        List<QuestionDTO> questionDTOList = new ArrayList<> ();
+        PagesDTO pagesDTO = new PagesDTO ();
+        for (Question question : questions) {
+            User user = githubUserMapper.findById (question.getCreator ());
+            QuestionDTO questionDTO = new QuestionDTO ();
+            BeanUtils.copyProperties (question, questionDTO);
+            questionDTO.setUser (user);
+            questionDTOList.add (questionDTO);
+        }
+        pagesDTO.setQuestionList (questionDTOList);
+        Integer count=questionMapper.countById (id);
         pagesDTO.setPages(page,size,count);
         return pagesDTO;
     }
