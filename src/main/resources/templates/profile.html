@@ -38,18 +38,34 @@
             </div>
             <nav aria-label="Page navigation">
                 <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
+                    <li th:if="${pagesList.showFirstPage}">
+                        <a th:href="@{'/profile/'+${section}(page=${1})}" aria-label="Previous">
+                            <span aria-hidden="true">&lt;&lt;</span>
+                        </a>
+                    </li>
+                    <li th:if="${pagesList.showPrevious}">
+                        <a th:href="@{'/profile/'+${section}(page=${pagesList.page-1})}" aria-label="Previous">
+                        <span aria-hidden="true">&lt;</span>
                         </a>
                     </li>
                     <li th:each="page:${pagesList.pages}" th:class="${pagesList.page==page}?'active':''"><a
-                             th:href="@{/profile/questions(page=${page})}"
+                             th:href="@{'/profile/'+${section}(page=${page})}"
                             th:text="${page}"></a></li>
                     <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo</span>
+                    <li th:if="${pagesList.showNext}">
+                        <a th:href="@{'/profile/'+${section}(page=${pagesList.page+1})}" aria-label="Previous">
+                            <span aria-hidden="true">&gt</span>
                         </a>
+                    </li>
+                    <li th:if="${pagesList.showEndPage}">
+                        <a th:href="@{'/profile/'+${section}(page=${pagesList.totalPages})}" aria-label="Previous">
+                            <span aria-hidden="true">&gt;&gt;</span>
+                        </a>
+                    </li>
+
+<!--                        <a href="#" aria-label="Next">-->
+<!--                            <span aria-hidden="true">&raquo</span>-->
+<!--                        </a>-->
                     </li>
                 </ul>
             </nav>
