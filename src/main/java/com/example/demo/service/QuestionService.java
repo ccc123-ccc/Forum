@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -65,5 +63,18 @@ public class QuestionService {
         Integer count=questionMapper.countById (id);
         pagesDTO.setPages(page,size,count);
         return pagesDTO;
+    }
+
+    public void createOrUpdate (Question question) {
+        if(question.getId ()==null){
+            question.setTime_create (System.currentTimeMillis ());
+            question.setTime_modify (question.getTime_create ());
+            questionMapper.insert (question);
+        }else{
+            question.setTime_create (System.currentTimeMillis ());
+            question.setTime_modify (question.getTime_create ());
+            questionMapper.update (question);
+        }
+
     }
 }

@@ -2,10 +2,7 @@ package com.example.demo.mapper;
 
 import com.example.demo.model.Question;
 import com.example.demo.model.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -16,7 +13,8 @@ public interface QuestionMapper {
     @Select("select * from question where id=#{id}")
     Question getById (@Param ("id") Integer id);
 
-    @Insert("insert into question (title,description,time_create,time_modify,creator,tag,avatar_url) values(#{title},#{description},#{time_create},#{time_modify},#{creator},#{tag},#{avatar_url})")
+    @Insert("insert into question (title,description,time_create,time_modify,creator,tag," +
+            "avatar_url) values(#{title},#{description},#{time_create},#{time_modify},#{creator},#{tag},#{avatar_url})")
     void insert (Question question);
 
     @Select("Select * from question limit #{offset},#{size}")
@@ -30,7 +28,7 @@ public interface QuestionMapper {
 
     @Select("select count(1) from question where creator=#{id}")
     Integer countById (@Param("id") Integer id);
-
-
-
+    @Update("update question set time_create=#{time_create},time_modify=#{time_modify}," +
+            "description=#{description},tag=#{tag},title=#{title} where id=#{id}")
+    void update (Question question);
 }

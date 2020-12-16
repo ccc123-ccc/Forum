@@ -5,6 +5,7 @@ import com.example.demo.DTO.GithubUserDTO;
 import com.example.demo.mapper.GithubUserMapper;
 import com.example.demo.model.User;
 import com.example.demo.provider.GithubProvider;
+import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,8 @@ public class Access_TokenController {
     private String redirecturi;
     @Autowired
     private GithubUserMapper githubUserMapper;
+    @Autowired
+    private UserService userService;
 
 
     @GetMapping("/callback")
@@ -49,17 +52,21 @@ public class Access_TokenController {
             user.setToken (token);
             user.setName (githubUserDTO.getName ());
             user.setAccountId (String.valueOf (githubUserDTO.getId ()));
-            user.setTime_create (System.currentTimeMillis ());
-            user.setTime_modify (user.getTime_create ());
             user.setAvatar_url (githubUserDTO.getAvatar_url ());
-            githubUserMapper.insert (user);
+            userService.createOrUpdate(user);
             response.addCookie (new Cookie ("Token",token ));
-//            request.getSession ().setAttribute ("user", githubUserDTO);
             return "redirect:/";
         }
-
-
         return "index";
+    }
+    @GetMapping("/logout")
+    public String logOut(HttpServletRequest request,
+                         HttpServletResponse response){
+        request.getSession ().removeAttribute ("user");
+        Cookie cookie=new Cookie ("Token", null);
+        cookie.setMaxAge (0);
+        response.addCookie (cookie);
+        return "redirect:/";
     }
 
 }

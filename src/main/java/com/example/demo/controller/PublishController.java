@@ -1,15 +1,19 @@
 package com.example.demo.controller;
 
+import com.example.demo.DTO.QuestionDTO;
 import com.example.demo.model.Question;
 import com.example.demo.mapper.QuestionMapper;
 import com.example.demo.mapper.GithubUserMapper;
 import com.example.demo.model.User;
+import com.example.demo.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.yaml.snakeyaml.events.Event;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +22,21 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class PublishController {
     @Autowired
+    private QuestionService questionService;
+    @Autowired
     QuestionMapper questionMapper;
     @Autowired
     private GithubUserMapper githubUserMapper;
+    @GetMapping("/publish/{id}")
+    public String edit(@PathVariable(name="id")Integer id,
+                       Model model){
+        QuestionDTO question = questionService.getById (id);
+        model.addAttribute ("title", question.getTitle ());
+        model.addAttribute ("description", question.getDescription ());
+        model.addAttribute ("tag", question.getTag ());
+        model.addAttribute ("id",question.getId ());
+        return "publish";
+    }
 
     @GetMapping("/publish")
     public String publish () {
@@ -32,6 +48,7 @@ public class PublishController {
             @RequestParam("title") String title,
             @RequestParam("description") String description,
             @RequestParam("tag") String tag,
+            @RequestParam(value = "id",required = false) Integer id,
             HttpServletRequest request,
             Model model
     ) {
@@ -60,7 +77,6 @@ public class PublishController {
                     user = githubUserMapper.findByToken (token);
                     if (user != null) {
                         request.getSession ().setAttribute ("userPublish", user);
-
                     }
                     break;
                 }
@@ -73,15 +89,12 @@ public class PublishController {
         }
         Question question = new Question ();
         question.setTitle (title);
-        question.setCreator (user.getId ());
+        question.setCreator  (user.getId ());
         question.setDescription (description);
-        question.setTime_create (System.currentTimeMillis ());
-        question.setTime_modify (question.getTime_create ());
         question.setTag (tag);
-//        question.setId (user.getId ());
         question.setAvatar_url (user.getAvatar_url ());
-        questionMapper.insert (question);
-
+        question.setId (id);
+        questionService.createOrUpdate(question);
         return "redirect:/";
     }
 }
