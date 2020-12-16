@@ -22,6 +22,15 @@ public class QuestionService {
     @Autowired
     private QuestionMapper questionMapper;
 
+    public  QuestionDTO getById (Integer id) {
+        Question question=questionMapper.getById(id);
+        QuestionDTO questionDTO = new QuestionDTO ();
+        User user = githubUserMapper.findById (question.getCreator ());
+        BeanUtils.copyProperties (question, questionDTO);
+        questionDTO.setUser (user);
+        return questionDTO;
+    }
+
     public PagesDTO list (Integer page, Integer size) {
         Integer offset = (page - 1) * size;
         List<Question> questions = questionMapper.list (offset, size);
