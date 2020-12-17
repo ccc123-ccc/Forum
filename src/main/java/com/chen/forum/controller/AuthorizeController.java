@@ -3,6 +3,7 @@ package com.chen.forum.controller;
 import com.chen.forum.DTO.AccessTokenDTO;
 import com.chen.forum.DTO.GitHubUser;
 import com.chen.forum.Provider.GitHubProvider;
+import com.chen.forum.Service.UserService;
 import com.chen.forum.mapper.UserMapper;
 import com.chen.forum.model.User;
 import okhttp3.Request;
@@ -29,7 +30,7 @@ public class AuthorizeController {
     @Value("${github.redirect.uri}")
     private String uri;
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
     @GetMapping("/callback")
     public String callback(@RequestParam(name="code") String code,
                            @RequestParam(name="state") String state,
@@ -49,14 +50,22 @@ public class AuthorizeController {
             user.setToken(token);
             user.setName(gitHubUser.getName());
             user.setAccountId(String.valueOf(gitHubUser.getId()));
-            user.setGmtCreate(System.currentTimeMillis());
-            user.setGmtModfied(user.getGmtCreate());
-            userMapper.insert(user);
+            user.setAvatarurl(gitHubUser.getAvatarurl());
+            userService.createOrUpdate(user);
             response.addCookie(new Cookie("token",token));
             return "redirect:/";
         }
         else{
             return "redirect:/";
         }
+    }
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request,
+                         HttpServletResponse response){
+        request.getSession().removeAttribute("user");
+        Cookie cookie = new Cookie("token", null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        return "redirect:/";
     }
 }
