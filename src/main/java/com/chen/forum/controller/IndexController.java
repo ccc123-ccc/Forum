@@ -7,6 +7,7 @@ import com.chen.forum.mapper.QuestionMapper;
 import com.chen.forum.mapper.UserMapper;
 import com.chen.forum.model.Question;
 import com.chen.forum.model.User;
+import com.chen.forum.model.UserExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,9 +36,11 @@ public class IndexController {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("token")) {
                     String token = cookie.getValue();
-                    User user = userMapper.findByToken(token);
-                    if (user != null) {
-                        request.getSession().setAttribute("user", user);
+                    UserExample example = new UserExample();
+                    example.createCriteria().andTokenEqualTo(token);
+                    List<User> users = userMapper.selectByExample(example);
+                    if (users.size()!=0) {
+                        request.getSession().setAttribute("user", users.get(0));
                     }
                     break;
                 }

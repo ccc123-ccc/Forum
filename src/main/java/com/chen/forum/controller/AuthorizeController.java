@@ -50,7 +50,7 @@ public class AuthorizeController {
             user.setToken(token);
             user.setName(gitHubUser.getName());
             user.setAccountId(String.valueOf(gitHubUser.getId()));
-            user.setAvatarurl(gitHubUser.getAvatarurl());
+            user.setAvatarUrl(gitHubUser.getAvatarurl());
             userService.createOrUpdate(user);
             response.addCookie(new Cookie("token",token));
             return "redirect:/";

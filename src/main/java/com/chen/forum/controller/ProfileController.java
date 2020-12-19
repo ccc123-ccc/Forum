@@ -5,6 +5,7 @@ import com.chen.forum.Service.QuestionService;
 import com.chen.forum.mapper.QuestionMapper;
 import com.chen.forum.mapper.UserMapper;
 import com.chen.forum.model.User;
+import com.chen.forum.model.UserExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class ProfileController {
@@ -33,9 +35,12 @@ public class ProfileController {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("token")) {
                     String token = cookie.getValue();
-                    user=userMapper.findByToken(token);
-                    if (user != null) {
-                        request.getSession().setAttribute("user", user);
+                    UserExample example = new UserExample();
+                    example.createCriteria().andTokenEqualTo(token);
+                    List<User> users = userMapper.selectByExample(example);
+                    if (users!=null) {
+                        user=users.get(0);
+                        request.getSession().setAttribute("user", users.get(0));
                     }
                     break;
                 }
