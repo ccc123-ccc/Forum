@@ -25,3 +25,13 @@ body{
     margin-top: 100px;
     margin-left: 600px;
 }
+.media-body{
+    padding-top: 10px;
+}
+.comment{
+    margin: 10px 0;
+}
+.btn-comment{
+    float: right;
+    margin-bottom: 10px;
+}

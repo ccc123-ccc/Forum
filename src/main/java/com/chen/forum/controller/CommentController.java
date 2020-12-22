@@ -13,20 +13,21 @@ import java.util.HashMap;
 public class CommentController {
     @Autowired
     private CommentMapper commentMapper;
+
     @ResponseBody
     @RequestMapping(value = "/comment",method = RequestMethod.POST)
     public Object post(@RequestBody CommentDTO commentDTO){
         Comment comment = new Comment();
-        comment.setCommentator(1);
-        comment.setParent_id(commentDTO.getParent_id());
+        comment.setCommentator(1L);
+        comment.setParentId(commentDTO.getParent_id());
         comment.setType(commentDTO.getType());
-        comment.setGmt_modified(System.currentTimeMillis());
-        comment.setGmt_create(System.currentTimeMillis());
+        comment.setGmtCreate(System.currentTimeMillis());
+        comment.setGmtModified(System.currentTimeMillis());
         comment.setContent(commentDTO.getContent());
-        comment.setLike_count(0);
+        comment.setLikeCount(0L);
         commentMapper.insert(comment);
         HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
         objectObjectHashMap.put("messgae","success");
-        return null;
+        return objectObjectHashMap;
     }
 }

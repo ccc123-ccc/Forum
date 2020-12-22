@@ -48,7 +48,7 @@ public class CustomizeExceptionHandler {
                 log.error("handle error", e);
                 model.addAttribute("message", CustomizeErrorCode.SYS_ERROR.getMessage());
             }
-            return new ModelAndView("error");
+            return new ModelAndView( "error");
         }
     }
 }
