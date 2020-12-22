@@ -22,7 +22,7 @@
             <hr>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${question.description}"></div>
             <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <a th:href="@{'/publish/'+${question.id}}" class="menu">
+            <a th:href="@{'/publish/'+${question.id}}" class="menu" th:if="${session.user!=null}">
                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 编辑
             </a>
@@ -34,8 +34,9 @@
                         <div class="media-left">
                             <a href="">
                                 <img class="media-object img-circle"
-                                     src="https://api.jikipedia.com/upload/a4f43e84ae1231adce0552f4c5e75d8b_75.jpg"
+                                     th:src="${question.user.avatarUrl}"
                                      height="60px" width="60px">
+
                             </a>
                         </div>
                         <div class="media-body">

@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.DTO.AccessTokenDTO;
 import com.example.demo.DTO.GithubUserDTO;
-import com.example.demo.mapper.GithubUserMapper;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
 import com.example.demo.provider.GithubProvider;
 import com.example.demo.service.UserService;
@@ -28,7 +28,7 @@ public class Access_TokenController {
     @Value("${github.redirect.uri}")
     private String redirecturi;
     @Autowired
-    private GithubUserMapper githubUserMapper;
+    private UserMapper userMapper;
     @Autowired
     private UserService userService;
 
@@ -52,7 +52,7 @@ public class Access_TokenController {
             user.setToken (token);
             user.setName (githubUserDTO.getName ());
             user.setAccountId (String.valueOf (githubUserDTO.getId ()));
-            user.setAvatar_url (githubUserDTO.getAvatar_url ());
+            user.setAvatarUrl (githubUserDTO.getAvatar_url ());
             userService.createOrUpdate(user);
             response.addCookie (new Cookie ("Token",token ));
             return "redirect:/";

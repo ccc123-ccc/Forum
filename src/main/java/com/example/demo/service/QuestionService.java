@@ -3,7 +3,8 @@ package com.example.demo.service;
 import com.example.demo.DTO.PagesDTO;
 import com.example.demo.DTO.QuestionDTO;
 import com.example.demo.mapper.QuestionMapper;
-import com.example.demo.mapper.GithubUserMapper;
+import com.example.demo.mapper.UserMapper;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.Question;
 import com.example.demo.model.User;
 import org.springframework.beans.BeanUtils;
@@ -16,14 +17,14 @@ import java.util.List;
 @Service
 public class QuestionService {
     @Autowired
-    private GithubUserMapper githubUserMapper;
+    private UserMapper userMapper;
     @Autowired
     private QuestionMapper questionMapper;
 
     public  QuestionDTO getById (Integer id) {
         Question question=questionMapper.getById(id);
         QuestionDTO questionDTO = new QuestionDTO ();
-        User user = githubUserMapper.findById (question.getCreator ());
+        User user = userMapper.selectByPrimaryKey (question.getCreator ());
         BeanUtils.copyProperties (question, questionDTO);
         questionDTO.setUser (user);
         return questionDTO;
@@ -35,7 +36,7 @@ public class QuestionService {
         List<QuestionDTO> questionDTOList = new ArrayList<> ();
         PagesDTO pagesDTO = new PagesDTO ();
         for (Question question : questions) {
-            User user = githubUserMapper.findById (question.getCreator ());
+            User user = userMapper.selectByPrimaryKey (question.getCreator ());
             QuestionDTO questionDTO = new QuestionDTO ();
             BeanUtils.copyProperties (question, questionDTO);
             questionDTO.setUser (user);
@@ -53,7 +54,7 @@ public class QuestionService {
         List<QuestionDTO> questionDTOList = new ArrayList<> ();
         PagesDTO pagesDTO = new PagesDTO ();
         for (Question question : questions) {
-            User user = githubUserMapper.findById (question.getCreator ());
+            User user = userMapper.selectByPrimaryKey (question.getCreator ());
             QuestionDTO questionDTO = new QuestionDTO ();
             BeanUtils.copyProperties (question, questionDTO);
             questionDTO.setUser (user);
@@ -76,5 +77,9 @@ public class QuestionService {
             questionMapper.update (question);
         }
 
+    }
+
+    public  void  updateViewCount (Integer id) {
+        questionMapper.updateViewCount (id);
     }
 }

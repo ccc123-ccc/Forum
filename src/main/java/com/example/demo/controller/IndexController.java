@@ -1,9 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.DTO.PagesDTO;
-import com.example.demo.DTO.QuestionDTO;
-import com.example.demo.mapper.GithubUserMapper;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
+import com.example.demo.model.UserExample;
 import com.example.demo.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ import java.util.List;
 @Controller
 public class IndexController {
     @Autowired
-    private GithubUserMapper githubUserMapper;
+    private UserMapper userMapper;
     @Autowired
     private QuestionService questionService;
 
@@ -33,9 +33,12 @@ public class IndexController {
             for (Cookie cookie : cookies) {
                 if (cookie.getName ().equals ("Token")) {
                     token = cookie.getValue ();
-                    User user = githubUserMapper.findByToken (token);
-                    if (user != null) {
-                        request.getSession ().setAttribute ("user", user);
+                    UserExample userExample = new UserExample ();
+                    userExample.createCriteria ()
+                            .andTokenEqualTo (token);
+                    List<User> users = userMapper.selectByExample (userExample);
+                    if (users.size ()!=0) {
+                        request.getSession ().setAttribute ("user", users.get (0));
                     }
                     break;
                 }

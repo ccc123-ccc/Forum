@@ -24,13 +24,15 @@
                 <div class="media-left">
                     <a href="#">
                         <img class="media-object"
-                             src="https://api.jikipedia.com/upload/a4f43e84ae1231adce0552f4c5e75d8b_75.jpg"
+                             th:src="${question.user.avatarUrl}"
                              height="60px" width="60px">
+
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading" th:text="${question.title}"></h4>
-
+                    <h4 class="media-heading">
+                        <a  th:href="@{'/question/'+${question.id}}"th:text="${question.title}" ></a>
+                    </h4>
                     <span class="text-desc"><span th:text="${question.comment_count}"></span>个评论 • <span
                             th:text="${question.view_count}"></span> 次浏览 • <span
                             th:text="${#dates.format(question.time_create,'yyyy-MM-dd HH:mm')}"></span></span>

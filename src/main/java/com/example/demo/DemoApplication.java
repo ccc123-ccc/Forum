@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 //@MapperScan(value= "com.example.demo.mapper.UserMapper")
 //@ComponentScan(basePackages = "com.example.demo.mapper")
 @SpringBootApplication()
+@MapperScan(basePackages = "com.example.demo.mapper")
 public class DemoApplication {
 
     public static void main (String[] args) {

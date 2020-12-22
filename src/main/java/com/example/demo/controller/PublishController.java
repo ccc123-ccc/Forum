@@ -3,8 +3,9 @@ package com.example.demo.controller;
 import com.example.demo.DTO.QuestionDTO;
 import com.example.demo.model.Question;
 import com.example.demo.mapper.QuestionMapper;
-import com.example.demo.mapper.GithubUserMapper;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
+import com.example.demo.model.UserExample;
 import com.example.demo.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.yaml.snakeyaml.events.Event;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 @Controller
@@ -26,7 +28,7 @@ public class PublishController {
     @Autowired
     QuestionMapper questionMapper;
     @Autowired
-    private GithubUserMapper githubUserMapper;
+    private UserMapper userMapper;
     @GetMapping("/publish/{id}")
     public String edit(@PathVariable(name="id")Integer id,
                        Model model){
@@ -74,16 +76,20 @@ public class PublishController {
             for (Cookie cookie : cookies) {
                 if (cookie.getName ().equals ("Token")) {
                     token = cookie.getValue ();
-                    user = githubUserMapper.findByToken (token);
-                    if (user != null) {
-                        request.getSession ().setAttribute ("userPublish", user);
+                    UserExample userExample = new UserExample ();
+                    userExample.createCriteria ()
+                            .andTokenEqualTo (token);
+                    List<User> users = userMapper.selectByExample (userExample);
+                    if (users.size ()!=0) {
+                        user=users.get(0);
+                        request.getSession ().setAttribute ("user", users.get (0));
                     }
                     break;
                 }
             }
         }
 
-        if (user == null) {
+        if (user==null) {
             model.addAttribute ("error", "用户未登陆");
             return "publish";
         }
@@ -92,7 +98,7 @@ public class PublishController {
         question.setCreator  (user.getId ());
         question.setDescription (description);
         question.setTag (tag);
-        question.setAvatar_url (user.getAvatar_url ());
+        question.setAvatar_url (user.getAvatarUrl ());
         question.setId (id);
         questionService.createOrUpdate(question);
         return "redirect:/";

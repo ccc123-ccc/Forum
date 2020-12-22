@@ -58,11 +58,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.22</version>
         </dependency>
         <dependency>
-            <groupId>net.sourceforge.nekohtml </groupId>
-            <artifactId>nekohtml </artifactId>
-            <version>1.9.22 </version>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -84,21 +85,18 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>7.3.1</version>
-                <configuration>
-                    <url>jdbc:mysql://localhost:3306/mydb</url>
-                    <user>root</user>
-                    <password>xzb011026</password>
-                </configuration>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.4.0</version>
                 <dependencies>
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
+                        <version>8.0.22</version>
                     </dependency>
                 </dependencies>
             </plugin>
+
         </plugins>
 
     </build>
