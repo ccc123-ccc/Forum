@@ -95,11 +95,12 @@ public class PublishController {
         }
         Question question = new Question ();
         question.setTitle (title);
-        question.setCreator  (user.getId ());
+        question.setCreator  (String .valueOf (user.getId ()));
         question.setDescription (description);
         question.setTag (tag);
-        question.setAvatar_url (user.getAvatarUrl ());
+        question.setAvatarUrl (user.getAvatarUrl ());
         question.setId (id);
+        question.setTimeCreate (System.currentTimeMillis ());
         questionService.createOrUpdate(question);
         return "redirect:/";
     }

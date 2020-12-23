@@ -30,9 +30,9 @@
                         <a  th:href="@{'/question/'+${question.id}}"th:text="${question.title}" ></a>
                     </h4>
                     <span th:text="${question.description}"></span><br>
-                    <span class="text-desc"><span th:text="${question.comment_count}"></span>个评论 • <span
-                            th:text="${question.view_count}"></span> 次浏览 • <span
-                            th:text="${#dates.format(question.time_create,'yyyy-MM-dd HH:mm')}"></span></span>
+                    <span class="text-desc"><span th:text="${question.commentCount}"></span>个评论 • <span
+                            th:text="${question.viewCount}"></span> 次浏览 • <span
+                            th:text="${#dates.format(question.timeCreate,'yyyy-MM-dd HH:mm')}"></span></span>
                 </div>
             </div>
             <nav aria-label="Page navigation">
