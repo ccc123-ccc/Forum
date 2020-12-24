@@ -81,11 +81,16 @@ public class QuestionService {
     }
 
     public void createOrUpdate(Question question) {
+        //插入
         if(question.getId()==null){
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
+            question.setCommentCount(0);
+            question.setViewCount(0);
+            question.setLikeCount(0);
             questionMapper.insert(question);
         }
+        //更新
         else{
             Question updateQuestion = new Question();
             updateQuestion.setGmtModified(System.currentTimeMillis());

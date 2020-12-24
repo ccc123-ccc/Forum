@@ -28,7 +28,7 @@
   <update id="incCommentCount" parameterType="com.chen.forum.model.Question">
     update QUESTION
     set
-    COMMENT_COUNT = COMMENT_COUNT + #{CommentCount,jdbcType=INTEGER}
+    COMMENT_COUNT = COMMENT_COUNT + #{commentCount,jdbcType=INTEGER}
     where id = #{id}
     </update>
 

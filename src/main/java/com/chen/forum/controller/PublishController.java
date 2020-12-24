@@ -39,7 +39,6 @@ public class PublishController {
 
     @GetMapping("/publish")
     public String publish(){
-        System.out.println("ssssss");
         return "publish";
     }
 
@@ -49,7 +48,7 @@ public class PublishController {
             @RequestParam(name="title") String title,
             @RequestParam(name="description")String description,
             @RequestParam(name="tag")String tag,
-            @RequestParam(name="id",required = false) long id,
+            @RequestParam(value="id",required = false) Long id,
             HttpServletRequest request,
             Model model
     ){
@@ -77,6 +76,7 @@ public class PublishController {
                 example.createCriteria().andTokenEqualTo(token);
                 List<User> users = userMapper.selectByExample(example);
                 if (users.size()!=0) {
+                    user=users.get(0);
                     request.getSession().setAttribute("user", users.get(0));
                 }
                 break;
