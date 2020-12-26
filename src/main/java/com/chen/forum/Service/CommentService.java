@@ -4,10 +4,7 @@ import com.chen.forum.DTO.CommentDTO;
 import com.chen.forum.enums.CommentTypeEnum;
 import com.chen.forum.exception.CustomizeErrorCode;
 import com.chen.forum.exception.CustomizeException;
-import com.chen.forum.mapper.CommentMapper;
-import com.chen.forum.mapper.QuestionExtMapper;
-import com.chen.forum.mapper.QuestionMapper;
-import com.chen.forum.mapper.UserMapper;
+import com.chen.forum.mapper.*;
 import com.chen.forum.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +27,8 @@ public class CommentService {
     private QuestionExtMapper questionExtMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private CommentExtMapper commentExtMapper;
     public List<CommentDTO> listByQuestionId(long id, CommentTypeEnum type) {
         CommentExample commentExample = new CommentExample();
         commentExample.createCriteria().andParentIdEqualTo(id).
@@ -101,6 +100,8 @@ public class CommentService {
                 throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
             }// 回复问题
             commentMapper.insert(comment);
+            dbComment.setCommentCount(1);
+            commentExtMapper.incCommentCount(dbComment);
         } else {
             // 回复问题
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());

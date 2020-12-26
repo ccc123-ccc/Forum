@@ -10,6 +10,7 @@ import com.chen.forum.mapper.UserMapper;
 import com.chen.forum.model.Question;
 import com.chen.forum.model.QuestionExample;
 import com.chen.forum.model.User;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class QuestionService {
 
@@ -52,7 +55,9 @@ public class QuestionService {
     public PageDTO list(Integer page, Integer size) {
         Integer offset=size*(page-1);
 
-        List<Question> list = questionMapper.selectByExampleWithRowbounds(new QuestionExample(), new RowBounds(offset, size));
+        QuestionExample questionExample = new QuestionExample();
+        questionExample.setOrderByClause("gmt_create desc");
+        List<Question> list = questionMapper.selectByExampleWithRowbounds(questionExample, new RowBounds(offset, size));
         ArrayList<QuestionDTO> questionDTOArrayList = new ArrayList<>();
         PageDTO pageDTO = new PageDTO();
         for(Question question:list){
@@ -112,5 +117,22 @@ public class QuestionService {
         question.setId(id);
         question.setViewCount(1);
         questionExtMapper.incView(question);
+    }
+
+    public List<QuestionDTO> selectRelated(QuestionDTO queryDTO) {
+        if(StringUtils.isBlank(queryDTO.getTag())){
+            return new ArrayList<>();
+        }
+        String replacetag = StringUtils.replace(queryDTO.getTag(), ",", "|");
+        Question question = new Question();
+        question.setId(queryDTO.getId());
+        question.setTag(replacetag);
+        List<Question> questions = questionExtMapper.selectRelated(question);
+        List<QuestionDTO> questionDTOS = questions.stream().map(q -> {
+            QuestionDTO questionDTO = new QuestionDTO();
+            BeanUtils.copyProperties(q, questionDTO);
+            return questionDTO;
+        }).collect(Collectors.toList());
+        return questionDTOS;
     }
 }
