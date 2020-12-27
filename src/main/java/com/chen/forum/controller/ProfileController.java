@@ -1,6 +1,7 @@
 package com.chen.forum.controller;
 
 import com.chen.forum.DTO.PageDTO;
+import com.chen.forum.Service.NotificationService;
 import com.chen.forum.Service.QuestionService;
 import com.chen.forum.mapper.QuestionMapper;
 import com.chen.forum.mapper.UserMapper;
@@ -23,42 +24,33 @@ public class ProfileController {
     private UserMapper userMapper;
     @Autowired
     private QuestionService questionService;
+    @Autowired
+    private NotificationService notificationService;
     @GetMapping("/profile/{action}")
     public String profile(HttpServletRequest request,
                           @PathVariable(name="action")String action,
                           Model model,
                           @RequestParam(name="page",defaultValue ="1" ) Integer page,
                           @RequestParam(name="size",defaultValue = "2") Integer size){
-        User user=null;
-        Cookie[] cookies = request.getCookies();
-        if(cookies!=null&&cookies.length!=0) {
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("token")) {
-                    String token = cookie.getValue();
-                    UserExample example = new UserExample();
-                    example.createCriteria().andTokenEqualTo(token);
-                    List<User> users = userMapper.selectByExample(example);
-                    if (users!=null) {
-                        user=users.get(0);
-                        request.getSession().setAttribute("user", users.get(0));
-                    }
-                    break;
-                }
-            }
-        }
+        User user= (User) request.getSession().getAttribute("user");
         if(user==null){
             return "redirect:/";
         }
         if("questions".equals(action)){
             model.addAttribute("section","questions");
             model.addAttribute("sectionName","我的提问");
+            PageDTO pageDTO=questionService.list(user.getId(),page,size);
+            model.addAttribute("pagination",pageDTO);
         }
         if("replies".equals(action)){
             model.addAttribute("section","replies");
             model.addAttribute("sectionName","最新回复");
+            PageDTO pageDTO=notificationService.list(user.getId(),page,size);
+            model.addAttribute("pagination",pageDTO);
+//            Long noreadCount=notificationService.unreadCount(user.getId());
+//            model.addAttribute("noreadCount",noreadCount);
         }
-        PageDTO pageDTO=questionService.list(user.getId(),page,size);
-        model.addAttribute("pagination",pageDTO);
+
         return "profile";
     }
 }

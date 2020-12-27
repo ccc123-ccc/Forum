@@ -33,13 +33,12 @@
         </javaClientGenerator>
 
         <table tableName="question" domainObjectName="Question" >
-
         </table>
         <table tableName="uuser" domainObjectName="User" >
-
         </table>
         <table tableName="comment" domainObjectName="Comment" >
-
+        </table>
+        <table tableName="notification" domainObjectName="Notification" >
         </table>
 
     </context>

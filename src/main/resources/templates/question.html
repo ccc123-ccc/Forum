@@ -30,6 +30,7 @@
                 <!--标签-->
                 <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span style="color: #3c763d">标签:</span>
                     <span class="question-tag" th:each="tag : ${question.tag.split(',')}">
                         <a th:href="@{/(page=1,tag=${tag})}"
                            th:text="${tag}" class="community-tag">
@@ -132,8 +133,8 @@
             <!--二珂我老婆-->
             <hr class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
             <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
-                <h4>站长老婆</h4>
-                <img src="/img/Erke.jpg">
+                <h4 style="margin-left: 109px">站长老婆</h4>
+                <img src="/img/Erke.jpg" width="100%">
             </div>
             <!--相关问题-->
             <hr class="col-lg-12 col-md-12  col-sm-12 col-xs-12">

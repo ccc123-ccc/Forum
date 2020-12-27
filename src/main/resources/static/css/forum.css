@@ -28,11 +28,22 @@ body{
     /*font-size: 18px;*/
     padding-left: 2px;
 }
+.publish-tag-tab{
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.publish-tag-tab .label-info{
+    white-space: normal;
+    margin: 5px 5px;
+    display: inline-block;
+}
 .community-menu{
+    margin-left: 3px;
     display: block;
-    color: #999;
     font-size: 13px;
     margin-bottom: 15px;
+    color: #a956ff;
 }
 .jumbotron{
     margin-top: 100px;
@@ -87,4 +98,23 @@ body{
 }
 .menu .icon:hover{
     color: #499ef3;
+}
+.community-tag:hover {
+    background-color: #339dff;
+    color: #fff !important;
+    text-decoration-line: none;
+}
+
+.community-tag {
+    text-decoration-line: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    line-height: 16px;
+    padding: 2px 5px;
+    background-color: #99cfff;
+    font-size: 12px;
+    color: #fff !important;
+    border-radius: 4px;
+    margin: 4px;
 }
