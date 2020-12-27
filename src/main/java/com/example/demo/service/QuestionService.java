@@ -2,11 +2,15 @@ package com.example.demo.service;
 
 import com.example.demo.DTO.PagesDTO;
 import com.example.demo.DTO.QuestionDTO;
+import com.example.demo.exception.CustomizeErrorCode;
+import com.example.demo.exception.CustomizeException;
+import com.example.demo.mapper.QuestionExtMapper;
 import com.example.demo.mapper.QuestionMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.Question;
 import com.example.demo.model.QuestionExample;
 import com.example.demo.model.User;
+import com.oracle.xmlns.internal.webservices.jaxws_databinding.ExistingAnnotationsType;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +25,14 @@ public class QuestionService {
     private UserMapper userMapper;
     @Autowired
     private QuestionMapper questionMapper;
+    @Autowired
+    private QuestionExtMapper questionExtMapper;
 
     public QuestionDTO getById (Integer id) {
-        QuestionExample example = new QuestionExample ();
-        example.createCriteria ()
-                .andIdEqualTo (id);
-        List<Question> questions = questionMapper.selectByExample (example);
-        Question question = questions.get (0);
+        Question question = questionMapper.selectByPrimaryKey (id);
+        if(question==null){
+            throw new CustomizeException (CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
         QuestionDTO questionDTO = new QuestionDTO ();
         User user = userMapper.selectByPrimaryKey (Integer.valueOf (question.getCreator ()));
         BeanUtils.copyProperties (question, questionDTO);
@@ -38,7 +43,6 @@ public class QuestionService {
     public PagesDTO list (Integer page, Integer size) {
         Integer offset = (page - 1) * size;
         List<Question> questions = questionMapper.selectByExampleWithRowbounds (new QuestionExample (), new RowBounds (offset, size));
-//        List<Question> questions = questionMapper.list (offset, size);
         List<QuestionDTO> questionDTOList = new ArrayList<> ();
         PagesDTO pagesDTO = new PagesDTO ();
         for (Question question : questions) {
@@ -60,7 +64,6 @@ public class QuestionService {
         example1.createCriteria ()
                 .andIdEqualTo (id);
         List<Question> questions = questionMapper.selectByExampleWithRowbounds (example1, new RowBounds (offset, size));
-//        List<Question> questions = questionMapper.listById (id,offset, size);
         List<QuestionDTO> questionDTOList = new ArrayList<> ();
         PagesDTO pagesDTO = new PagesDTO ();
         for (Question question : questions) {
@@ -71,7 +74,6 @@ public class QuestionService {
             questionDTOList.add (questionDTO);
         }
         pagesDTO.setQuestionList (questionDTOList);
-//        Integer count=questionMapper.countById (id);
         QuestionExample example = new QuestionExample ();
         example.createCriteria ()
                 .andIdEqualTo (id);
@@ -84,6 +86,9 @@ public class QuestionService {
         if (question.getId () == null) {
             question.setTimeModify (question.getTimeCreate ());
             questionMapper.insert (question);
+            question.setCommentCount (0);
+            question.setViewCount (0);
+            question.setLikeCount (0);
         } else {
             Question updateQuestion = new Question ();
             updateQuestion.setTimeModify (System.currentTimeMillis ());
@@ -94,12 +99,18 @@ public class QuestionService {
             QuestionExample example = new QuestionExample ();
             example.createCriteria ()
                     .andIdEqualTo (question.getId ());
-            questionMapper.updateByExampleSelective (updateQuestion, example);
+            int update = questionMapper.updateByExampleSelective (updateQuestion, example);
+            if(update!=1){
+                throw new CustomizeException (CustomizeErrorCode.QUESTION_NOT_FOUND);
+            }
         }
 
     }
 
-//    public void updateViewCount (Integer id) {
-//        questionMapper.(id);
-//    }
+    public void updateViewCount (Integer id) {
+       Question question=new Question ();
+       question.setId (id);
+       question.setViewCount (1);
+       questionExtMapper.updateView (question);
+    }
 }

@@ -6,6 +6,9 @@
 body {
     background-color: #efefef;
 }
+.media-body{
+    padding-top: 10px;
+}
 
 
 .text-desc{
@@ -18,4 +21,14 @@ body {
 }
 .menu{
     color: #999;
+}
+.jumbotron{
+    margin: 50px;
+}
+.comment{
+    margin: 20px 0 20px 0;
+}
+.comment_btn{
+    float: right;
+    margin-bottom: 10px;
 }
