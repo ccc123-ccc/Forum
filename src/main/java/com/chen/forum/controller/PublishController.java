@@ -60,21 +60,7 @@ public class PublishController {
         model.addAttribute("description",description);
         model.addAttribute("tag",tag);
         model.addAttribute("tags", TagCache.get());
-        User user=null;
-        Cookie[] cookies = request.getCookies();
-        for(Cookie cookie:cookies){
-            if(cookie.getName().equals("token")){
-                String token = cookie.getValue();
-                UserExample example = new UserExample();
-                example.createCriteria().andTokenEqualTo(token);
-                List<User> users = userMapper.selectByExample(example);
-                if (users.size()!=0) {
-                    user=users.get(0);
-                    request.getSession().setAttribute("user", users.get(0));
-                }
-                break;
-            }
-        }
+        User user =(User) request.getSession().getAttribute("user");
         if(user==null){
             model.addAttribute("error","用户未登录");
             return "publish";

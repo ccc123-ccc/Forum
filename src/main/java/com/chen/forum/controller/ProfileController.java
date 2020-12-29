@@ -47,8 +47,6 @@ public class ProfileController {
             model.addAttribute("sectionName","最新回复");
             PageDTO pageDTO=notificationService.list(user.getId(),page,size);
             model.addAttribute("pagination",pageDTO);
-//            Long noreadCount=notificationService.unreadCount(user.getId());
-//            model.addAttribute("noreadCount",noreadCount);
         }
 
         return "profile";

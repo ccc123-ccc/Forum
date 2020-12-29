@@ -30,24 +30,11 @@ public class IndexController {
     public String index(HttpServletRequest request,
                             Model model,
                         @RequestParam(name="page",defaultValue ="1" ) Integer page,
-                        @RequestParam(name="size",defaultValue = "2") Integer size){
-        Cookie[] cookies = request.getCookies();
-        if(cookies!=null&&cookies.length!=0) {
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("token")) {
-                    String token = cookie.getValue();
-                    UserExample example = new UserExample();
-                    example.createCriteria().andTokenEqualTo(token);
-                    List<User> users = userMapper.selectByExample(example);
-                    if (users.size()!=0) {
-                        request.getSession().setAttribute("user", users.get(0));
-                    }
-                    break;
-                }
-            }
-        }
-        PageDTO questionList= questionService.list(page,size);
+                        @RequestParam(name="size",defaultValue = "5") Integer size,
+                        @RequestParam(name="search",required = false) String search){
+        PageDTO questionList= questionService.list(search,page,size);
         model.addAttribute("pagination",questionList);
+        model.addAttribute("search",search);
         return "index";
     }
 }

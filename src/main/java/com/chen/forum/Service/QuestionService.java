@@ -2,6 +2,7 @@ package com.chen.forum.Service;
 
 import com.chen.forum.DTO.PageDTO;
 import com.chen.forum.DTO.QuestionDTO;
+import com.chen.forum.DTO.QuestionQueryDTO;
 import com.chen.forum.exception.CustomizeErrorCode;
 import com.chen.forum.exception.CustomizeException;
 import com.chen.forum.mapper.QuestionExtMapper;
@@ -52,12 +53,17 @@ public class QuestionService {
         return pageDTO;
     }
 
-    public PageDTO list(Integer page, Integer size) {
+    public PageDTO list(String search,Integer page, Integer size) {
         Integer offset=size*(page-1);
-
-        QuestionExample questionExample = new QuestionExample();
-        questionExample.setOrderByClause("gmt_create desc");
-        List<Question> list = questionMapper.selectByExampleWithRowbounds(questionExample, new RowBounds(offset, size));
+        String replacesearch=null;
+        if(search!=null){
+            replacesearch = search.replace(" ", "|").replace(",", "|");
+        }
+        QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+        questionQueryDTO.setSearch(replacesearch);
+        questionQueryDTO.setOffset(offset);
+        questionQueryDTO.setSize(size);
+        List<Question> list = questionExtMapper.selectBySearch(questionQueryDTO);
         ArrayList<QuestionDTO> questionDTOArrayList = new ArrayList<>();
         PageDTO pageDTO = new PageDTO();
         for(Question question:list){
@@ -68,7 +74,7 @@ public class QuestionService {
             questionDTOArrayList.add(questionDTO);
         }
         pageDTO.setData(questionDTOArrayList);
-        Integer totalcount=(int)questionMapper.countByExample(new QuestionExample());
+        Integer totalcount=questionExtMapper.countBySearch(questionQueryDTO);
         pageDTO.setPageDTO(totalcount,page,size);
         return pageDTO;
     }

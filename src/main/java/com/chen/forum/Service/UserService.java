@@ -16,13 +16,13 @@ public class UserService {
         UserExample example = new UserExample();
         example.createCriteria().andAccountIdEqualTo(user.getAccountId());
         List<User> users = userMapper.selectByExample(example);
-        User dbuser = users.get(0);
-        if(dbuser==null){
+        if(users.size()==0){
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
         }
         else{
+            User dbuser = users.get(0);
             User user1=new User();
             user1.setName(user.getName());
             user1.setToken(user.getToken());
