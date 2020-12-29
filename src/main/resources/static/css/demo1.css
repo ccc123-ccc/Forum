@@ -2,17 +2,18 @@
     margin: 30px;
     background-color: white;
 }
-
 body {
     background-color: #efefef;
 }
 .media-body{
     padding-top: 10px;
+
 }
-
-
+.myStyle{
+    height: 96px;
+}
 .text-desc{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
     color:#999999;
 }
@@ -20,7 +21,9 @@ body {
     margin-top: 15px;
 }
 .menu{
+    margin-top: 5px;
     color: #999;
+    /*cursor: pointer;*/
 }
 .jumbotron{
     margin: 50px;
@@ -31,4 +34,41 @@ body {
 .comment_btn{
     float: right;
     margin-bottom: 10px;
+}
+.comment-hp{
+    margin-top: 0px;
+}
+.like-hp{
+    margin-right: 12px;
+}
+.icon{
+    cursor: pointer;
+}
+.icon:hover{
+    color: #499ef3;
+}
+.comments{
+    margin-bottom: 35px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.subComments{
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #eee;
+    padding-top: 15px;
+}
+.button_style{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.comment-icon{
+    cursor: pointer;
+}
+.myStyle1{
+    height: 40px;
+    width: 40px;
+}
+.text-desc{
+
 }

@@ -9,6 +9,16 @@
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.min.js" type="application/javascript"></script>
 </head>
+<script type="application/javascript">
+    window.onload = function () {
+        var closable = window.localStorage.getItem("closable");
+        if (closable == "true") {
+            window.close();
+            window.localStorage.removeItem("closable");
+        }
+    }
+</script>
+
 <body>
 <div th:insert="~{navigation :: navigation}"></div>
 <div class="container-fluid main">
@@ -17,7 +27,7 @@
             <h2><span class="glyphicon glyphicon-align-left" aira-hidden="ture"></span> 发现 </h2>
             <hr>
 
-            <div class="media" th:each="question:${pagesList.questionList}">
+            <div class="media " th:each="question:${pagesList.questionList}">
                 <div class="media-left">
                     <a href="#">
                         <img class="media-object"
@@ -27,7 +37,7 @@
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">
-                        <a  th:href="@{'/question/'+${question.id}}"th:text="${question.title}" ></a>
+                        <a th:href="@{'/question/'+${question.id}}" th:text="${question.title}"></a>
                     </h4>
                     <span th:text="${question.description}"></span><br>
                     <span class="text-desc"><span th:text="${question.commentCount}"></span>个评论 • <span

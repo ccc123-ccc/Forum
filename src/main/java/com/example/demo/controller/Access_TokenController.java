@@ -68,5 +68,4 @@ public class Access_TokenController {
         response.addCookie (cookie);
         return "redirect:/";
     }
-
 }

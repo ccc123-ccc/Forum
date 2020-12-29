@@ -17,7 +17,6 @@ public class CustomizeErrorController implements ErrorController {
     @RequestMapping(produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView errorHtml (HttpServletRequest request, Model model) {
         HttpStatus status = getStatus (request);
-
         if(status.is4xxClientError ()){
             model.addAttribute ("message","你这个请求错了吧，要不换个姿势？");
         }

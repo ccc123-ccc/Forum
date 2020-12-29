@@ -42,7 +42,9 @@ public class QuestionService {
 
     public PagesDTO list (Integer page, Integer size) {
         Integer offset = (page - 1) * size;
-        List<Question> questions = questionMapper.selectByExampleWithRowbounds (new QuestionExample (), new RowBounds (offset, size));
+        QuestionExample example = new QuestionExample ();
+        example.setOrderByClause ("time_create desc");
+        List<Question> questions = questionMapper.selectByExampleWithRowbounds (example, new RowBounds (offset, size));
         List<QuestionDTO> questionDTOList = new ArrayList<> ();
         PagesDTO pagesDTO = new PagesDTO ();
         for (Question question : questions) {
@@ -85,10 +87,10 @@ public class QuestionService {
     public void createOrUpdate (Question question) {
         if (question.getId () == null) {
             question.setTimeModify (question.getTimeCreate ());
-            questionMapper.insert (question);
             question.setCommentCount (0);
             question.setViewCount (0);
             question.setLikeCount (0);
+            questionMapper.insert (question);
         } else {
             Question updateQuestion = new Question ();
             updateQuestion.setTimeModify (System.currentTimeMillis ());
@@ -104,7 +106,6 @@ public class QuestionService {
                 throw new CustomizeException (CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
-
     }
 
     public void updateViewCount (Integer id) {
