@@ -1,74 +1,141 @@
 .main {
     margin: 30px;
-    background-color: white;
+    /*background-color: white;*/
 }
-body {
-    background-color: #efefef;
-}
-.media-body{
-    padding-top: 10px;
 
+body {
+    /*background-color: #efefef;*/
+    background-size: 100%;
+    background-color: transparent;
+    background-image: url("/img/d.png");
 }
-.myStyle{
+
+.media-body {
+    padding-top: 10px;
+}
+
+.myStyle {
     height: 96px;
 }
-.text-desc{
+
+.text-desc {
     font-size: 14px;
     font-weight: normal;
-    color:#999999;
+    color:white;
 }
-.profile.section{
+.text1-desc{
+    font-size: 14px;
+    font-weight: normal;
+    color:gray;
+}
+
+.profile.section {
     margin-top: 15px;
 }
-.menu{
+
+.menu {
     margin-top: 5px;
-    color: #999;
+    color:white;
     /*cursor: pointer;*/
 }
-.jumbotron{
+
+.jumbotron {
     margin: 50px;
 }
-.comment{
+
+.comment {
     margin: 20px 0 20px 0;
 }
-.comment_btn{
+
+.comment_btn {
     float: right;
     margin-bottom: 10px;
 }
-.comment-hp{
+
+.comment-hp {
     margin-top: 0px;
 }
-.like-hp{
+
+.like-hp {
     margin-right: 12px;
 }
-.icon{
+
+.icon {
     cursor: pointer;
 }
-.icon:hover{
+
+.icon:hover {
     color: #499ef3;
 }
-.comments{
+
+.comments {
     margin-bottom: 35px;
-    border-bottom: 1px solid #eee;
+
     padding-bottom: 10px;
 }
-.subComments{
+
+.subComments {
     border-radius: 5px;
     margin-top: 10px;
     border: 1px solid #eee;
     padding-top: 15px;
 }
-.button_style{
+
+.button_style {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.comment-icon{
+
+.comment-icon {
     cursor: pointer;
 }
-.myStyle1{
+
+.myStyle1 {
     height: 40px;
     width: 40px;
 }
-.text-desc{
 
+.image-style {
+    height: 250px;
+    width: 250px;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.word {
+    font-family: PingFangSC-Regular, sans-serif;
+
+}
+.MyColorDark{
+    color: #0f0f0f;
+}
+
+textarea {
+    background-color: transparent;
+
+}
+form-control{
+    background-color: transparent;
+}
+text{
+    background-color: transparent;
+}
+input{
+    background-color: transparent;
+
+}
+.myColor{
+    color:#f1e4bf;
+}
+.myColorBlue{
+    color: #f1e4bf;
+}
+.myColormibai{
+    color: #f1e4bf;
+}
+.myColorWhite{
+    color: white;
+}
+.myColorYellow{
+    color: #6f6f61;
 }

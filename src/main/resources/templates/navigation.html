@@ -2,18 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <div th:fragment="navigation">
-    <nav class="navbar navbar-default">
+    <nav >
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only" href="/"> BzzB </span>
+                    <span  class="sr-only myColorYellow" href="/"> BzzB </span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"> BzzB </a>
+                <a class="navbar-brand myColorYellow" href="/"> BzzB </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -23,17 +23,17 @@
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="搜索问题">
                     </div>
-                    <button type="submit" class="btn btn-default">查询</button>
+                    <button type="submit" class="btn btn-default myColorYellow">查询</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li th:if="${session.user!=null}">
-                        <a href="/publish">发布</a>
+                        <a  class="myColorYellow" href="/publish">发布</a>
                     </li>
                     <li class="dropdown" >
                     <li class="dropdown" th:if="${session.user!=null}">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">
-                            <span th:text="${session.user.getName()}"></span>
+                            <span  class="myColorYellow" th:text="${session.user.getName()}"></span>
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/profile/questions">我的问题</a></li>
@@ -42,7 +42,7 @@
                     </li>
 
                     <li th:if="${session.user==null}">
-                        <a href="https://github.com/login/oauth/authorize?client_id=3783cac01f9c1383eb5c&redirect_uri=http://localhost:8080/callback&scope=user%20public_repo&state=2">登录</a>
+                        <a href="https://github.com/login/oauth/authorize?client_id=3783cac01f9c1383eb5c&redirect_uri=http://localhost:8080/callback&scope=user%20public_repo&state=2" class="myColorYellow">登录</a>
                     </li>
 
                 </ul>

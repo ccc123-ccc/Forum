@@ -20,13 +20,13 @@
 </nav>
 <div class="container-fluid main">
     <div class="row">
-        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h2><span class="glyphicon glyphicon-plus" aira-hidden="ture"></span> 发起</h2>
-            <hr>
+            <hr style="border-color:#ff0000;border:0;border-top:1px;">
 
             <form action="/publish" method="post">
                 <li th:if="${id!=null}">
-                <input type="hidden" name="id" th:value="${id} ">
+                    <input type="hidden" name="id" th:value="${id} ">
                 </li>
                 <div class="form-group">
                     <label for="title">问题标题（简单扼要）：</label>
@@ -50,19 +50,24 @@
                 <button type="submit" class="btn btn-success" style="float: right;margin-bottom: 15px;">发布</button>
             </form>
         </div>
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>问题发起指南</h3>
-            • 问题标题: 请用精简的语言描述您发布的问题，不超过25字<br><br>
-            • 问题补充: 详细补充您的问题内容，并确保问题描述清晰直观, 并提供一些相关的资料：<br><br>
-            <div>       1.服务器运行环境信息;</div>
-            <div>       2.软件版本；</div>
-            <div>       3.问题发生的上下文信息;</div>
-            <div>       4.补充完整的异常和错误信息；</div>
-            <div>       5.注意阅读格式友好，代码和异常信息请用代码标签格式化张贴；</div><br><br>
-            • 选择标签: 选择一个或者多个合适的标签，用逗号隔开，每个标签不超过10个字
+<!--        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">-->
+<!--            <div style="margin-left: 63px">-->
+<!--                <h3>问题发起指南</h3>-->
+<!--                • 问题标题: 请用精简的语言描述您发布的问题，不超过25字<br><br>-->
+<!--                • 问题补充: 详细补充您的问题内容，并确保问题描述清晰直观, 并提供一些相关的资料：<br><br>-->
+<!--                <div> 1.服务器运行环境信息;</div>-->
+<!--                <div> 2.软件版本；</div>-->
+<!--                <div> 3.问题发生的上下文信息;</div>-->
+<!--                <div> 4.补充完整的异常和错误信息；</div>-->
+<!--                <div> 5.注意阅读格式友好，代码和异常信息请用代码标签格式化张贴；</div>-->
+<!--                <br><br>-->
+<!--                • 选择标签: 选择一个或者多个合适的标签，用逗号隔开，每个标签不超过10个字-->
+<!--            </div>-->
+<!--        </div>-->
+        >
 
-        </div>
     </div>
+</div>
 </div>
 </body>
 </html>

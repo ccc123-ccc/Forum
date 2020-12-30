@@ -21,12 +21,10 @@
 
 <body>
 <div th:insert="~{navigation :: navigation}"></div>
-<div class="container-fluid main">
+<div class="container-fluid main word">
     <div class="row">
-        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h2><span class="glyphicon glyphicon-align-left" aira-hidden="ture"></span> 发现 </h2>
-            <hr>
-
             <div class="media " th:each="question:${pagesList.questionList}">
                 <div class="media-left">
                     <a href="#">
@@ -35,12 +33,12 @@
                              height="60px" width="60px">
                     </a>
                 </div>
-                <div class="media-body">
+                <div class="media-body myColor">
                     <h4 class="media-heading">
-                        <a th:href="@{'/question/'+${question.id}}" th:text="${question.title}"></a>
+                        <a  class="myColormibai" th:href="@{'/question/'+${question.id}}" th:text="${question.title}"></a>
                     </h4>
-                    <span th:text="${question.description}"></span><br>
-                    <span class="text-desc"><span th:text="${question.commentCount}"></span>个评论 • <span
+                    <span  class="myColorWhite" th:text="${question.description}"></span><br>
+                    <span class="text1-desc"><span th:text="${question.commentCount}"></span>个评论 • <span
                             th:text="${question.viewCount}"></span> 次浏览 • <span
                             th:text="${#dates.format(question.timeCreate,'yyyy-MM-dd HH:mm')}"></span></span>
                 </div>
@@ -74,11 +72,17 @@
                 </ul>
             </nav>
 
-        </div>
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>热门话题</h3>
-        </div>
+<!--        </div>-->
+<!--        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">-->
+<!--            <div style="margin-left: 63px">-->
+<!--                <h3>热门话题</h3>-->
+<!--            </div>-->
+<!--            &lt;!&ndash;            <img class="media-object image-style"&ndash;&gt;-->
+<!--            &lt;!&ndash;                 src="https://wxt.sinaimg.cn/thumb300/71e28d79gy1fw3594lscfj22ds1sgnpd.jpg?tags=%5B%5D"&ndash;&gt;-->
+<!--            &lt;!&ndash;                 >&ndash;&gt;-->
+
+<!--            &lt;!&ndash;            <img src="/img/WechatIMG6381.png" height="250" width="250"/></div>&ndash;&gt;-->
+<!--        </div>-->
     </div>
-</div>
 </body>
 </html>
