@@ -1,15 +1,449 @@
-2020-12-29 13:26:09.245  INFO 28820 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 28820 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
-2020-12-29 13:26:09.247  INFO 28820 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
-2020-12-29 13:26:09.286  INFO 28820 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-12-29 13:26:09.287  INFO 28820 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-12-29 13:26:09.305  WARN 28820 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2020-12-29 13:26:09.994  INFO 28820 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-12-29 13:26:09.999  INFO 28820 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-12-29 13:26:10.000  INFO 28820 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-12-29 13:26:10.059  INFO 28820 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-12-29 13:26:10.059  INFO 28820 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 771 ms
-2020-12-29 13:26:10.383  INFO 28820 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-29 13:26:10.424  INFO 28820 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2020-12-29 13:26:10.599  INFO 28820 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-12-29 13:26:10.632  INFO 28820 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-29 13:26:10.639  INFO 28820 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 1.653 seconds (JVM running for 2.25)
+2020-12-30 00:07:35.031  WARN 17888 --- [http-nio-8080-exec-8] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [199] milliseconds.
+2020-12-30 06:14:08.268  WARN 17888 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5h2m55s422ms251µs).
+2020-12-30 08:04:28.332  WARN 17888 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h48m20s78ms155µs).
+2020-12-30 12:31:48.835  INFO 6572 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 6572 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:31:48.839  INFO 6572 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:31:48.931  INFO 6572 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:31:48.932  INFO 6572 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:31:48.945  WARN 6572 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:31:50.858  INFO 6572 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:31:50.876  INFO 6572 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:31:50.877  INFO 6572 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:31:51.066  INFO 6572 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:31:51.066  INFO 6572 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2132 ms
+2020-12-30 12:31:52.001  INFO 6572 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:31:52.117  INFO 6572 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:31:52.745  INFO 6572 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:31:52.877  INFO 6572 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:31:52.908  INFO 6572 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.671 seconds (JVM running for 6.193)
+2020-12-30 12:31:58.644  INFO 6572 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:31:58.645  INFO 6572 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:31:58.647  INFO 6572 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 12:31:58.753  INFO 6572 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:31:59.012  INFO 6572 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:31:59.229  WARN 6572 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [161] milliseconds.
+2020-12-30 12:36:01.873  INFO 16760 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 16760 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:36:01.878  INFO 16760 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:36:01.978  INFO 16760 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:36:01.979  INFO 16760 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:36:02.006  WARN 16760 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:36:04.386  INFO 16760 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:36:04.402  INFO 16760 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:36:04.402  INFO 16760 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:36:04.585  INFO 16760 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:36:04.586  INFO 16760 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2605 ms
+2020-12-30 12:36:05.699  INFO 16760 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:36:05.835  INFO 16760 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:36:06.384  INFO 16760 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:36:06.499  INFO 16760 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:36:06.522  INFO 16760 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 5.337 seconds (JVM running for 7.08)
+2020-12-30 12:36:06.719  INFO 16760 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:36:06.719  INFO 16760 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:36:06.723  INFO 16760 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-12-30 12:36:06.839  INFO 16760 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:36:07.091  INFO 16760 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:36:07.345  WARN 16760 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [180] milliseconds.
+2020-12-30 12:38:01.169  INFO 8208 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 8208 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:38:01.175  INFO 8208 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:38:01.279  INFO 8208 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:38:01.279  INFO 8208 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:38:01.318  WARN 8208 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:38:03.501  INFO 8208 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:38:03.518  INFO 8208 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:38:03.519  INFO 8208 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:38:03.696  INFO 8208 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:38:03.697  INFO 8208 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2415 ms
+2020-12-30 12:38:04.677  INFO 8208 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:38:04.797  INFO 8208 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:38:05.295  INFO 8208 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:38:05.398  INFO 8208 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:38:05.418  INFO 8208 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.964 seconds (JVM running for 7.007)
+2020-12-30 12:38:09.243  INFO 8208 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:38:09.243  INFO 8208 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:38:09.245  INFO 8208 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 12:38:09.338  INFO 8208 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:38:09.575  INFO 8208 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:38:09.864  WARN 8208 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [233] milliseconds.
+2020-12-30 12:39:12.771  INFO 21060 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 21060 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:39:12.776  INFO 21060 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:39:12.858  INFO 21060 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:39:12.859  INFO 21060 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:39:12.901  WARN 21060 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:39:14.764  INFO 21060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:39:14.780  INFO 21060 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:39:14.781  INFO 21060 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:39:14.953  INFO 21060 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:39:14.954  INFO 21060 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2094 ms
+2020-12-30 12:39:15.859  INFO 21060 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:39:15.979  INFO 21060 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:39:16.492  INFO 21060 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:39:16.598  INFO 21060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:39:16.620  INFO 21060 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.481 seconds (JVM running for 6.021)
+2020-12-30 12:39:21.188  INFO 21060 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:39:21.189  INFO 21060 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:39:21.191  INFO 21060 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 12:39:21.284  INFO 21060 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:39:21.527  INFO 21060 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:39:21.779  WARN 21060 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [198] milliseconds.
+2020-12-30 12:44:43.256  INFO 5076 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 5076 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:44:43.260  INFO 5076 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:44:43.351  INFO 5076 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:44:43.351  INFO 5076 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:44:43.371  WARN 5076 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:44:45.264  INFO 5076 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:44:45.281  INFO 5076 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:44:45.282  INFO 5076 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:44:45.448  INFO 5076 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:44:45.449  INFO 5076 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2096 ms
+2020-12-30 12:44:46.356  INFO 5076 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:44:46.467  INFO 5076 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:44:46.914  INFO 5076 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:44:47.012  INFO 5076 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:44:47.032  INFO 5076 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.37 seconds (JVM running for 5.848)
+2020-12-30 12:45:24.410  INFO 5076 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:45:24.411  INFO 5076 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:45:24.413  INFO 5076 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 12:45:24.502  INFO 5076 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:45:24.738  INFO 5076 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:45:24.997  WARN 5076 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [201] milliseconds.
+2020-12-30 12:46:18.548  INFO 20604 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 20604 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:46:18.552  INFO 20604 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:46:18.637  INFO 20604 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:46:18.638  INFO 20604 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:46:18.665  WARN 20604 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:46:20.418  INFO 20604 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:46:20.432  INFO 20604 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:46:20.433  INFO 20604 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:46:20.589  INFO 20604 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:46:20.589  INFO 20604 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1950 ms
+2020-12-30 12:46:21.468  INFO 20604 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:46:21.580  INFO 20604 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:46:22.036  INFO 20604 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:46:22.133  INFO 20604 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:46:22.155  INFO 20604 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.146 seconds (JVM running for 5.514)
+2020-12-30 12:46:28.253  INFO 20604 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:46:28.254  INFO 20604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:46:28.256  INFO 20604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 12:46:28.345  INFO 20604 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:46:28.578  INFO 20604 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:46:28.841  WARN 20604 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [209] milliseconds.
+2020-12-30 12:47:22.912  INFO 20092 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 20092 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:47:22.917  INFO 20092 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:47:23.003  INFO 20092 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:47:23.004  INFO 20092 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:47:23.050  WARN 20092 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:47:24.864  INFO 20092 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:47:24.879  INFO 20092 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:47:24.879  INFO 20092 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:47:25.049  INFO 20092 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:47:25.050  INFO 20092 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2044 ms
+2020-12-30 12:47:25.926  INFO 20092 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:47:26.037  INFO 20092 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:47:26.485  INFO 20092 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:47:26.583  INFO 20092 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:47:26.604  INFO 20092 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.287 seconds (JVM running for 5.699)
+2020-12-30 12:47:29.031  INFO 20092 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:47:29.032  INFO 20092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:47:29.034  INFO 20092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 12:47:29.124  INFO 20092 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:47:29.363  INFO 20092 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:47:29.627  WARN 20092 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [209] milliseconds.
+2020-12-30 12:50:55.449  INFO 20960 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 20960 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:50:55.454  INFO 20960 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:50:55.552  INFO 20960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:50:55.553  INFO 20960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:50:55.588  WARN 20960 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:50:57.760  INFO 20960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:50:57.777  INFO 20960 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:50:57.777  INFO 20960 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:50:57.963  INFO 20960 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:50:57.964  INFO 20960 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2409 ms
+2020-12-30 12:50:58.966  INFO 20960 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:50:59.098  INFO 20960 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:50:59.596  INFO 20960 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:50:59.725  INFO 20960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:50:59.749  INFO 20960 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.924 seconds (JVM running for 6.383)
+2020-12-30 12:51:13.832  INFO 20960 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:51:13.832  INFO 20960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:51:13.835  INFO 20960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-12-30 12:51:13.947  INFO 20960 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:51:14.182  INFO 20960 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:51:14.448  WARN 20960 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [209] milliseconds.
+2020-12-30 12:53:26.077  INFO 20952 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 20952 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:53:26.082  INFO 20952 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:53:26.169  INFO 20952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:53:26.170  INFO 20952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:53:26.195  WARN 20952 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:53:28.019  INFO 20952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:53:28.034  INFO 20952 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:53:28.035  INFO 20952 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:53:28.210  INFO 20952 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:53:28.210  INFO 20952 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2039 ms
+2020-12-30 12:53:29.134  INFO 20952 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:53:29.248  INFO 20952 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:53:29.704  INFO 20952 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:53:29.799  INFO 20952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:53:29.820  INFO 20952 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.293 seconds (JVM running for 5.729)
+2020-12-30 12:53:37.887  INFO 20952 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:53:37.888  INFO 20952 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:53:37.890  INFO 20952 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 12:53:37.981  INFO 20952 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:53:38.228  INFO 20952 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:53:38.480  WARN 20952 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [198] milliseconds.
+2020-12-30 12:54:35.062  INFO 15944 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 15944 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:54:35.067  INFO 15944 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:54:35.168  INFO 15944 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:54:35.169  INFO 15944 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:54:35.194  WARN 15944 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:54:37.047  INFO 15944 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:54:37.065  INFO 15944 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:54:37.066  INFO 15944 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:54:37.218  INFO 15944 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:54:37.219  INFO 15944 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2049 ms
+2020-12-30 12:54:38.098  INFO 15944 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:54:38.212  INFO 15944 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:54:38.667  INFO 15944 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:54:38.763  INFO 15944 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:54:38.785  INFO 15944 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.312 seconds (JVM running for 5.799)
+2020-12-30 12:54:39.787  INFO 15944 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:54:39.788  INFO 15944 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:54:39.790  INFO 15944 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 12:54:39.880  INFO 15944 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:54:40.115  INFO 15944 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:54:40.370  WARN 15944 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [202] milliseconds.
+2020-12-30 12:58:08.475  INFO 16520 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 16520 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:58:08.481  INFO 16520 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:58:08.574  INFO 16520 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:58:08.575  INFO 16520 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:58:08.621  WARN 16520 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:58:10.390  INFO 16520 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:58:10.404  INFO 16520 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:58:10.405  INFO 16520 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:58:10.568  INFO 16520 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:58:10.569  INFO 16520 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1992 ms
+2020-12-30 12:58:11.478  INFO 16520 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:58:11.599  INFO 16520 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:58:12.070  INFO 16520 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:58:12.169  INFO 16520 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:58:12.191  INFO 16520 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.376 seconds (JVM running for 5.852)
+2020-12-30 12:58:13.432  INFO 16520 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:58:13.432  INFO 16520 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:58:13.434  INFO 16520 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2020-12-30 12:58:13.525  INFO 16520 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:58:13.763  INFO 16520 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:58:14.027  WARN 16520 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [210] milliseconds.
+2020-12-30 12:58:48.600  INFO 18252 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 18252 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 12:58:48.604  INFO 18252 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 12:58:48.711  INFO 18252 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 12:58:48.712  INFO 18252 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 12:58:48.728  WARN 18252 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 12:58:50.547  INFO 18252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 12:58:50.563  INFO 18252 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 12:58:50.563  INFO 18252 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 12:58:50.720  INFO 18252 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 12:58:50.720  INFO 18252 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2007 ms
+2020-12-30 12:58:51.647  INFO 18252 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 12:58:51.773  INFO 18252 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 12:58:52.256  INFO 18252 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 12:58:52.354  INFO 18252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 12:58:52.374  INFO 18252 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.375 seconds (JVM running for 5.86)
+2020-12-30 12:58:52.489  INFO 18252 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 12:58:52.489  INFO 18252 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 12:58:52.491  INFO 18252 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 12:58:52.588  INFO 18252 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 12:58:52.841  INFO 18252 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 12:58:53.104  WARN 18252 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [205] milliseconds.
+2020-12-30 13:00:56.923  INFO 15184 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 15184 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 13:00:56.929  INFO 15184 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 13:00:57.030  INFO 15184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 13:00:57.032  INFO 15184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 13:00:57.054  WARN 15184 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 13:00:58.828  INFO 15184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 13:00:58.840  INFO 15184 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 13:00:58.841  INFO 15184 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 13:00:58.984  INFO 15184 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 13:00:58.985  INFO 15184 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1951 ms
+2020-12-30 13:00:59.869  INFO 15184 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 13:01:00.016  INFO 15184 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 13:01:00.491  INFO 15184 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 13:01:00.607  INFO 15184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 13:01:00.628  INFO 15184 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.332 seconds (JVM running for 5.744)
+2020-12-30 13:01:11.615  INFO 15184 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 13:01:11.615  INFO 15184 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 13:01:11.617  INFO 15184 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 13:01:11.708  INFO 15184 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 13:01:11.947  INFO 15184 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 13:01:12.200  WARN 15184 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [199] milliseconds.
+2020-12-30 13:02:48.270  INFO 10956 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 10956 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 13:02:48.277  INFO 10956 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 13:02:48.390  INFO 10956 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 13:02:48.392  INFO 10956 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 13:02:48.411  WARN 10956 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 13:02:50.189  INFO 10956 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 13:02:50.202  INFO 10956 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 13:02:50.202  INFO 10956 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 13:02:50.341  INFO 10956 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 13:02:50.342  INFO 10956 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1947 ms
+2020-12-30 13:02:51.161  INFO 10956 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 13:02:51.266  INFO 10956 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 13:02:51.737  INFO 10956 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 13:02:51.834  INFO 10956 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 13:02:51.855  INFO 10956 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.229 seconds (JVM running for 5.891)
+2020-12-30 13:03:28.151  INFO 10956 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 13:03:28.152  INFO 10956 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 13:03:28.154  INFO 10956 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 13:03:28.249  INFO 10956 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 13:03:28.482  INFO 10956 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 13:03:28.747  WARN 10956 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [210] milliseconds.
+2020-12-30 13:07:25.285  INFO 16260 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 16260 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 13:07:25.290  INFO 16260 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 13:07:25.389  INFO 16260 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 13:07:25.389  INFO 16260 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 13:07:25.420  WARN 16260 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 13:07:27.171  INFO 16260 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 13:07:27.185  INFO 16260 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 13:07:27.186  INFO 16260 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 13:07:27.338  INFO 16260 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 13:07:27.338  INFO 16260 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1946 ms
+2020-12-30 13:07:28.254  INFO 16260 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 13:07:28.366  INFO 16260 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 13:07:28.835  INFO 16260 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 13:07:28.933  INFO 16260 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 13:07:28.957  INFO 16260 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.246 seconds (JVM running for 5.665)
+2020-12-30 13:07:29.980  INFO 16260 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 13:07:29.980  INFO 16260 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 13:07:29.982  INFO 16260 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 13:07:30.072  INFO 16260 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 13:07:30.311  INFO 16260 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 13:07:30.564  WARN 16260 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [199] milliseconds.
+2020-12-30 13:33:00.996  INFO 17360 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 17360 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 13:33:01.001  INFO 17360 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 13:33:01.099  INFO 17360 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 13:33:01.100  INFO 17360 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 13:33:01.121  WARN 17360 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 13:33:02.874  INFO 17360 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 13:33:02.887  INFO 17360 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 13:33:02.888  INFO 17360 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 13:33:03.030  INFO 17360 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 13:33:03.031  INFO 17360 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1930 ms
+2020-12-30 13:33:03.946  INFO 17360 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 13:33:04.066  INFO 17360 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 13:33:04.521  INFO 17360 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 13:33:04.624  INFO 17360 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 13:33:04.662  INFO 17360 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.257 seconds (JVM running for 5.685)
+2020-12-30 13:33:07.431  INFO 17360 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 13:33:07.431  INFO 17360 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 13:33:07.433  INFO 17360 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 13:33:07.520  INFO 17360 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 13:33:07.757  INFO 17360 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 13:33:08.009  WARN 17360 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [200] milliseconds.
+2020-12-30 13:36:58.585  INFO 11316 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 11316 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 13:36:58.589  INFO 11316 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 13:36:58.686  INFO 11316 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 13:36:58.687  INFO 11316 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 13:36:58.708  WARN 11316 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 13:37:00.462  INFO 11316 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 13:37:00.476  INFO 11316 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 13:37:00.477  INFO 11316 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 13:37:00.618  INFO 11316 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 13:37:00.618  INFO 11316 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1929 ms
+2020-12-30 13:37:01.490  INFO 11316 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 13:37:01.601  INFO 11316 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 13:37:02.068  INFO 11316 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 13:37:02.166  INFO 11316 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 13:37:02.190  INFO 11316 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.23 seconds (JVM running for 5.695)
+2020-12-30 13:37:04.712  INFO 11316 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 13:37:04.713  INFO 11316 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 13:37:04.715  INFO 11316 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 13:37:04.802  INFO 11316 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 13:37:05.034  INFO 11316 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 13:37:05.296  WARN 11316 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [208] milliseconds.
+2020-12-30 13:38:10.926  INFO 960 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 960 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 13:38:10.930  INFO 960 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 13:38:11.022  INFO 960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 13:38:11.023  INFO 960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 13:38:11.067  WARN 960 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 13:38:12.756  INFO 960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 13:38:12.769  INFO 960 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 13:38:12.769  INFO 960 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 13:38:12.908  INFO 960 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 13:38:12.908  INFO 960 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1883 ms
+2020-12-30 13:38:13.796  INFO 960 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 13:38:13.909  INFO 960 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 13:38:14.361  INFO 960 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 13:38:14.456  INFO 960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 13:38:14.481  INFO 960 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.112 seconds (JVM running for 5.535)
+2020-12-30 13:38:14.664  INFO 960 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 13:38:14.665  INFO 960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 13:38:14.667  INFO 960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 13:38:14.754  INFO 960 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 13:38:14.997  INFO 960 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 13:38:15.254  WARN 960 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [201] milliseconds.
+2020-12-30 13:38:38.930  INFO 3252 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 3252 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 13:38:38.934  INFO 3252 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 13:38:39.027  INFO 3252 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 13:38:39.028  INFO 3252 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 13:38:39.073  WARN 3252 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 13:38:40.863  INFO 3252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 13:38:40.882  INFO 3252 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 13:38:40.883  INFO 3252 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 13:38:41.031  INFO 3252 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 13:38:41.032  INFO 3252 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2002 ms
+2020-12-30 13:38:41.933  INFO 3252 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 13:38:42.051  INFO 3252 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 13:38:42.523  INFO 3252 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 13:38:42.636  INFO 3252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 13:38:42.658  INFO 3252 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.302 seconds (JVM running for 5.676)
+2020-12-30 13:38:48.523  INFO 3252 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 13:38:48.524  INFO 3252 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 13:38:48.525  INFO 3252 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2020-12-30 13:38:48.617  INFO 3252 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 13:38:48.856  INFO 3252 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 13:38:49.112  WARN 3252 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [200] milliseconds.
+2020-12-30 13:46:38.350  INFO 16612 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 16612 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 13:46:38.354  INFO 16612 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 13:46:38.458  INFO 16612 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 13:46:38.459  INFO 16612 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 13:46:38.496  WARN 16612 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 13:46:40.384  INFO 16612 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 13:46:40.398  INFO 16612 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 13:46:40.399  INFO 16612 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 13:46:40.550  INFO 16612 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 13:46:40.551  INFO 16612 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2088 ms
+2020-12-30 13:46:41.546  INFO 16612 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 13:46:41.681  INFO 16612 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 13:46:42.179  INFO 16612 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 13:46:42.277  INFO 16612 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 13:46:42.300  INFO 16612 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.535 seconds (JVM running for 5.911)
+2020-12-30 13:46:42.386  INFO 16612 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 13:46:42.386  INFO 16612 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 13:46:42.388  INFO 16612 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-12-30 13:46:42.483  INFO 16612 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 13:46:42.754  INFO 16612 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 13:46:43.019  WARN 16612 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [210] milliseconds.
+2020-12-30 13:51:10.023  INFO 4632 --- [restartedMain] com.chen.forum.ForumApplication          : Starting ForumApplication using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 4632 (D:\Javacode\forum\target\classes started by 13466 in D:\Javacode\forum)
+2020-12-30 13:51:10.028  INFO 4632 --- [restartedMain] com.chen.forum.ForumApplication          : No active profile set, falling back to default profiles: default
+2020-12-30 13:51:10.126  INFO 4632 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 13:51:10.127  INFO 4632 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 13:51:10.168  WARN 4632 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-12-30 13:51:12.122  INFO 4632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-30 13:51:12.137  INFO 4632 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-30 13:51:12.137  INFO 4632 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-30 13:51:12.297  INFO 4632 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-30 13:51:12.298  INFO 4632 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2168 ms
+2020-12-30 13:51:13.235  INFO 4632 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 13:51:13.362  INFO 4632 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-30 13:51:13.832  INFO 4632 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-30 13:51:13.932  INFO 4632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-30 13:51:13.953  INFO 4632 --- [restartedMain] com.chen.forum.ForumApplication          : Started ForumApplication in 4.562 seconds (JVM running for 6.212)
+2020-12-30 13:51:24.465  INFO 4632 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 13:51:24.466  INFO 4632 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-30 13:51:24.470  INFO 4632 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-12-30 13:51:24.649  INFO 4632 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-30 13:51:24.926  INFO 4632 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-30 13:51:25.197  WARN 4632 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [209] milliseconds.
+2020-12-30 13:51:25.198  WARN 4632 --- [http-nio-8080-exec-2] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [209] milliseconds.
+2020-12-30 13:51:25.198  WARN 4632 --- [http-nio-8080-exec-4] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [145] milliseconds.
+2020-12-30 13:51:25.198  WARN 4632 --- [http-nio-8080-exec-3] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [209] milliseconds.
+2020-12-30 18:23:27.620  WARN 4632 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h31m32s304ms385µs700ns).
+2020-12-30 19:20:59.556  WARN 4632 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=56m35s796ms984µs300ns).

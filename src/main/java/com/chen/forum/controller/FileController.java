@@ -1,9 +1,7 @@
 package com.chen.forum.controller;
 
 import com.chen.forum.DTO.FileDTO;
-import com.chen.forum.Provider.UCloudProvider;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

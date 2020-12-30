@@ -4,6 +4,9 @@
 }
 body{
     background-color: #efefef;
+    /*background-color: transparent;*/
+    /*background-image: url("https://s3.ax1x.com/2020/12/30/rLtXUU.jpg");*/
+    /*background-size: 100%;*/
 }
 .btn-publish{
     float: right;
