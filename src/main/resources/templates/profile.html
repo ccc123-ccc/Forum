@@ -13,29 +13,50 @@
 <div th:insert="~{navigation :: navigation}"></div>
 <div class="container-fluid main profile">
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2><span th:text="${sectionName}"></span></h2>
             <hr style="border-color:#ff0000;border:0;border-top:1px;">
 
-            <h2><span class="glyphicon glyphicon-align-left" aira-hidden="ture"></span></h2>
+            <!--            <h2><span class="glyphicon glyphicon-align-left" aira-hidden="ture"></span></h2>-->
             <hr style="border-color:#ff0000;border:0;border-top:1px;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="media " th:each="question:${pagesList.data}" th:if="${section=='questions'}">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object"
+                                 th:src="${question.user.avatarUrl}"
+                                 height="60px" width="60px">
+                        </a>
+                    </div>
+                    <div class="media-body myColor">
+                        <h4 class="media-heading">
+                            <a class="myColormibai" th:href="@{'/question/'+${question.id}}"
+                               th:text="${question.title}"></a>
 
-            <div class="media" th:each="question:${pagesList.questionList}">
-                <div class="media-left">
-                    <a href="#">
-                        <img class="media-object"
-                             th:src="${question.user.avatarUrl}"
-                             height="60px" width="60px">
-
-                    </a>
+                        </h4>
+                        <span class="myColorWhite" th:text="${question.description}"></span><br>
+                        <span class="text1-desc"><span th:text="${question.commentCount}"></span>个评论 • <span
+                                th:text="${question.viewCount}"></span> 次浏览 • <span
+                                th:text="${#dates.format(question.timeCreate,'yyyy-MM-dd HH:mm')}"></span></span>
+                    </div>
                 </div>
-                <div class="media-body">
-                    <h4 class="media-heading">
-                        <a th:href="@{'/question/'+${question.id}}" th:text="${question.title}"></a>
-                    </h4>
-                    <span class="text-desc"><span th:text="${question.commentCount}"></span>个评论 • <span
-                            th:text="${question.viewCount}"></span> 次浏览 • <span
-                            th:text="${#dates.format(question.timeCreate,'yyyy-MM-dd HH:mm')}"></span></span>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="media " th:each="notification:${pagesList.data}" th:if="${section=='replies'}">
+                    <div class="media-body myColor">
+                        <h5 class="media-heading">
+                            <a class="myColormibai"
+                               th:text="${notification.notifierName+' '}">
+                            </a>
+                            <a class="myColorWhite"
+                               th:text="${notification.message+' '}">
+                            </a>
+                            <a class="myColormibai" th:href="@{'/notification/'+${notification.id}}"
+                               th:text="${notification.outerTitle}">
+                            </a>
+                            <span class="label label-warning" th:if="${notification.status==0}">未读</span>
+                        </h5>
+                    </div>
                 </div>
             </div>
             <nav aria-label="Page navigation">
@@ -64,28 +85,24 @@
                             <span aria-hidden="true">&gt;&gt;</span>
                         </a>
                     </li>
-
-                    <!--                        <a href="#" aria-label="Next">-->
-                    <!--                            <span aria-hidden="true">&raquo</span>-->
-                    <!--                        </a>-->
                     </li>
                 </ul>
             </nav>
 
 
-<!--        </div>-->
-<!--        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">-->
-<!--            <div style="margin-left: 63px">-->
-<!--                <div class="list-group section">-->
-<!--                    <a href="/profile/questions"-->
-<!--                       th:class="${section=='questions'} ? 'active list-group-item':'list-group-item' "-->
-<!--                       style="margin-top: 15px">我的问题</a>-->
-<!--                    <a href="/profile/replies"-->
-<!--                       th:class="${section=='replies'} ? 'active list-group-item':'list-group-item'">最新回复</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+            <!--        </div>-->
+            <!--        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">-->
+            <!--            <div style="margin-left: 63px">-->
+            <!--                <div class="list-group section">-->
+            <!--                    <a href="/profile/questions"-->
+            <!--                       th:class="${section=='questions'} ? 'active list-group-item':'list-group-item' "-->
+            <!--                       style="margin-top: 15px">我的问题</a>-->
+            <!--                    <a href="/profile/replies"-->
+            <!--                       th:class="${section=='replies'} ? 'active list-group-item':'list-group-item'">最新回复</a>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+        </div>
     </div>
-</div>
 </body>
 </html>

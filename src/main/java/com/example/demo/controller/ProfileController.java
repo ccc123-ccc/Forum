@@ -4,6 +4,7 @@ import com.example.demo.DTO.PagesDTO;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
 import com.example.demo.model.UserExample;
+import com.example.demo.service.NotificationService;
 import com.example.demo.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,8 @@ public class ProfileController {
     private UserMapper userMapper;
     @Autowired
     private QuestionService questionService;
+    @Autowired
+    private NotificationService notificationService;
 
     @GetMapping("/profile/{action}")
     public String profile (@PathVariable(name = "action") String action,
@@ -47,18 +50,23 @@ public class ProfileController {
                 }
             }
         }
-        if (user == null) {
+        user=(User)request.getSession() .getAttribute ("user");
+        if (request.getSession() .getAttribute ("user")== null) {
             return "redirect:/";
         }
         if ("questions".equals (action)) {
             model.addAttribute ("section", "questions");
             model.addAttribute ("sectionName", "我的问题");
+            PagesDTO pagesDTO = questionService.list (user.getId (), page, size);
+            model.addAttribute ("pagesList", pagesDTO);
         } else if ("replies".equals (action)) {
+            PagesDTO pagesDTO = notificationService.list (user.getId (), page, size);
+            Integer unReadCount=notificationService.unReadCount();
             model.addAttribute ("section", "replies");
             model.addAttribute ("sectionName", "最新回复");
+            model.addAttribute ("unReadCount", unReadCount);
+            model.addAttribute ("pagesList", pagesDTO);
         }
-        PagesDTO pagesDTO = questionService.list (user.getId (), page, size);
-        model.addAttribute ("pagesList", pagesDTO);
         return "profile";
     }
 }

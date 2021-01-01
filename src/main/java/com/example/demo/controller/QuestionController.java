@@ -24,9 +24,11 @@ public class QuestionController {
                            Model model){
         QuestionDTO questionDTO= questionService.getById(id);
         List<CommentDTO> commentDTOList=commentService.listByTargetId (id, CommentTypeEnums.QUESTION);
+        List<QuestionDTO> relatedQuestionDTOS=questionService.listByRegexp(questionDTO);
         questionService.updateViewCount (id);
         model.addAttribute ("question",questionDTO);
         model.addAttribute ("comments",commentDTOList);
+        model.addAttribute ("relatedQuestions",relatedQuestionDTOS);
         return "question";
     }
 }

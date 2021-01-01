@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.DTO.CommentDTO;
 import com.example.demo.DTO.PagesDTO;
 import com.example.demo.DTO.QuestionDTO;
 import com.example.demo.exception.CustomizeErrorCode;
@@ -11,13 +12,16 @@ import com.example.demo.model.Question;
 import com.example.demo.model.QuestionExample;
 import com.example.demo.model.User;
 import com.oracle.xmlns.internal.webservices.jaxws_databinding.ExistingAnnotationsType;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestionService {
@@ -54,7 +58,7 @@ public class QuestionService {
             questionDTO.setUser (user);
             questionDTOList.add (questionDTO);
         }
-        pagesDTO.setQuestionList (questionDTOList);
+        pagesDTO.setData (questionDTOList);
         Integer count = (int) questionMapper.countByExample (new QuestionExample ());
         pagesDTO.setPages (page, size, count);
         return pagesDTO;
@@ -63,8 +67,6 @@ public class QuestionService {
     public PagesDTO list (Integer id, Integer page, Integer size) {
         Integer offset = (page - 1) * size;
         QuestionExample example1 = new QuestionExample ();
-        example1.createCriteria ()
-                .andIdEqualTo (id);
         List<Question> questions = questionMapper.selectByExampleWithRowbounds (example1, new RowBounds (offset, size));
         List<QuestionDTO> questionDTOList = new ArrayList<> ();
         PagesDTO pagesDTO = new PagesDTO ();
@@ -75,7 +77,7 @@ public class QuestionService {
             questionDTO.setUser (user);
             questionDTOList.add (questionDTO);
         }
-        pagesDTO.setQuestionList (questionDTOList);
+        pagesDTO.setData (questionDTOList);
         QuestionExample example = new QuestionExample ();
         example.createCriteria ()
                 .andIdEqualTo (id);
@@ -113,5 +115,26 @@ public class QuestionService {
        question.setId (id);
        question.setViewCount (1);
        questionExtMapper.updateView (question);
+    }
+
+    public List<QuestionDTO> listByRegexp (QuestionDTO questionDTO) {
+        if(questionDTO.getTag ()==null){
+            return new ArrayList<> ();
+        }
+        String[] tags= StringUtils.split (questionDTO.getTag (),",");
+        String regexStr= Arrays.stream(tags).collect(Collectors.joining("|"));
+        Question question = new Question ();
+        question.setId (questionDTO.getId ());
+        question.setTag (regexStr);
+
+
+        List<Question> questions = questionExtMapper.selectRelated (question);
+        List<QuestionDTO> collect = questions.stream ().map (q -> {
+            QuestionDTO questionDTO1 = new QuestionDTO ();
+            BeanUtils.copyProperties (q, questionDTO1);
+            return questionDTO1;
+        }).collect (Collectors.toList ());
+
+        return collect;
     }
 }

@@ -23,15 +23,26 @@
                 作者:<span th:text="${question.user.getName()}"></span>|
                 发布时间: <span th:text="${#dates.format(question.timeCreate,'yyyy-MM-dd HH:mm')}"></span>|
                 阅读数:<span th:text="${question.viewCount}"></span></span>
+
                 <hr class="col-lg-12  col-md-12 col-sm-12 col-xs-12"
                     style="border-color:#ff0000;border:0;border-top:1px;">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${question.description}"></div>
                 <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
                     style="border-color:#ff0000;border:0;border-top:1px;">
-                <a th:href="@{'/publish/'+${question.id}}" class="menu" th:if="${session.user!=null}">
-                    <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="margin-bottom: 20px"></span>
+                <a th:href="@{'/publish/'+${question.id}}" class="menu myColorYellow" th:if="${session.user!=null}">
+                    <span class="glyphicon glyphicon-pencil " aria-hidden="true" style="margin-bottom: 20px"></span>
                     编辑
                 </a>
+                <span class="label label-info question-tag" th:each="tag:${question.tag.split(',')}">
+                    <span class="glyphicon glyphicon-tag"></span>
+                <span class="label label-info" th:text="${tag}"></span>
+                </span>
+                <span class="label label-primary question-tag" th:each="related:${relatedQuestions}">
+                     <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                    <a th:href="@{'/question/'+${related.id}}">
+                    <span class="label label-primary" th:text="${related.title}"></span>
+                        </a>
+                </span>
 
             </div>
             <!--回复列表-->
@@ -53,9 +64,9 @@
                         <div class="media-body myStyle">
                             <div class="myColor">
                                 <h5 class="media-heading" style="margin-top: -8px;">
-                                    <span  class="myColorBlue" th:text="${comment.user.getName()}"></span>
+                                    <span class="myColorBlue" th:text="${comment.user.getName()}"></span>
                                 </h5>
-                                <div  class="myColorWhite" th:text="${comment.content}"></div>
+                                <div class="myColorWhite" th:text="${comment.content}"></div>
                                 <div class="menu">
                                     <span class="glyphicon glyphicon-thumbs-up like-hp icon"></span>
                                     <span class="glyphicon glyphicon-comment icon" th:data-id="${comment.id}"
@@ -106,32 +117,18 @@
             </div>
         </div>
 
-        <!--        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">-->
-        <!--            <div style="margin-left: 63px">-->
-        <!--                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
-        <!--                    <h4>发起人</h4>-->
-        <!--                    <div class="media">-->
-        <!--                        <div class="media-left">-->
-        <!--                            <a href="">-->
-        <!--                                <img class="media-object img-circle"-->
-        <!--                                     th:src="${question.user.avatarUrl}"-->
-        <!--                                     height="60px" width="60px">-->
+        <!--                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">-->
+        <!--                    <div style="margin-left: 63px">-->
+        <!--                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+        <!--                            <h4>发起人</h4>-->
 
-        <!--                            </a>-->
         <!--                        </div>-->
-        <!--                        <div class="media-body">-->
-        <!--                            <h5 class="media-heading">-->
-        <!--                                <span th:text="${question.user.getName()}"></span>-->
-        <!--                            </h5>-->
+        <!--                        <hr style="border-color:#ff0000;border:0;border-top:1px;">-->
+        <!--                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+        <!--                            <h4>相关问题</h4>-->
         <!--                        </div>-->
         <!--                    </div>-->
         <!--                </div>-->
-        <!--                <hr style="border-color:#ff0000;border:0;border-top:1px;">-->
-        <!--                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
-        <!--                    <h4>相关问题</h4>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
     </div>
 </div>
 

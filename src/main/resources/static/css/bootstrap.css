@@ -4876,6 +4876,7 @@ a.label:focus {
 }
 .label-primary {
   background-color: #337ab7;
+  padding: 9px;
 }
 .label-primary[href]:hover,
 .label-primary[href]:focus {
