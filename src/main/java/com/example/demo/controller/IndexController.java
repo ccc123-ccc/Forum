@@ -4,6 +4,7 @@ import com.example.demo.DTO.PagesDTO;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
 import com.example.demo.model.UserExample;
+import com.example.demo.service.NotificationService;
 import com.example.demo.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ public class IndexController {
     private UserMapper userMapper;
     @Autowired
     private QuestionService questionService;
+    @Autowired
+    private NotificationService notificationService;
 
     @GetMapping("/")
     public String index (HttpServletRequest request,
@@ -39,6 +42,8 @@ public class IndexController {
                     List<User> users = userMapper.selectByExample (userExample);
                     if (users.size ()!=0) {
                         request.getSession ().setAttribute ("user", users.get (0));
+                        Integer unReadCount= notificationService.getUnreadCount(users.get (0));
+                        request.getSession ().setAttribute ("unReadCount",unReadCount);
                     }
                     break;
                 }

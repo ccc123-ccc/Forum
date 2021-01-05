@@ -72,12 +72,34 @@ body {
 .icon {
     cursor: pointer;
 }
-
+.myColorLightYellow{
+    color: #f0ad4e;;
+}
 .icon:hover {
     color: #499ef3;
 }
 .icon.active {
     color: #499ef3;
+}
+/*.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {*/
+/*    background-color: #7fa5dc;*/
+/*    border-color: #337ab7;*/
+/*}*/
+/*.dropdown-menu>li>a {*/
+/*    display: block;*/
+/*    padding: 3px 20px;*/
+/*    clear: both;*/
+/*    font-weight: 400;*/
+/*    line-height: 1.42857143;*/
+/*    color: #6f6f61;;*/
+/*    white-space: nowrap;*/
+/*    background-color:#7fa5dc;*/
+/*}*/
+nav>li>.dropdown-menu {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color:#7fa5dc;
 }
 
 .comments {

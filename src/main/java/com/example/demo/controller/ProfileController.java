@@ -45,6 +45,8 @@ public class ProfileController {
                     List<User> users = userMapper.selectByExample (userExample);
                     if (users.size ()!=0) {
                         request.getSession ().setAttribute ("user", users.get (0));
+                        Integer unReadCount= notificationService.getUnreadCount(users.get (0));
+                        request.getSession ().setAttribute ("unReadCount",unReadCount);
                     }
                     break;
                 }

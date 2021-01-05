@@ -22,7 +22,24 @@ public class NotificationService {
     @Autowired
     private NotificationMapper notificationMapper;
     @Autowired
-    private UserMapper userMapper;
+    UserMapper userMapper;
+
+    public  Integer getUnreadCount (User user) {
+        Integer userId=user.getId ();
+        NotificationExample example = new NotificationExample ();
+        example.createCriteria ()
+                .andReceiverEqualTo (userId);
+        List<Notification> notifications = notificationMapper.selectByExample (example);
+        int count=0;
+        for (Notification notification : notifications) {
+            if(notification.getStatus ()==0){
+                count++;
+            }
+        }
+        return count;
+
+    }
+
     public PagesDTO list (Integer id, Integer page, Integer size) {
         Integer offset = (page - 1) * size;
         NotificationExample example1 = new NotificationExample ();

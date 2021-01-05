@@ -67,6 +67,8 @@ public class QuestionService {
     public PagesDTO list (Integer id, Integer page, Integer size) {
         Integer offset = (page - 1) * size;
         QuestionExample example1 = new QuestionExample ();
+        example1.createCriteria ()
+                .andCreatorEqualTo (String .valueOf (id));
         List<Question> questions = questionMapper.selectByExampleWithRowbounds (example1, new RowBounds (offset, size));
         List<QuestionDTO> questionDTOList = new ArrayList<> ();
         PagesDTO pagesDTO = new PagesDTO ();
@@ -80,7 +82,7 @@ public class QuestionService {
         pagesDTO.setData (questionDTOList);
         QuestionExample example = new QuestionExample ();
         example.createCriteria ()
-                .andIdEqualTo (id);
+                .andCreatorEqualTo (String .valueOf (id));
         Integer count = (int) questionMapper.countByExample (example);
         pagesDTO.setPages (page, size, count);
         return pagesDTO;

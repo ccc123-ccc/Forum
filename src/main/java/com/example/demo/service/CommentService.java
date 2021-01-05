@@ -100,13 +100,14 @@ public class CommentService {
         if (comments.size () == 0) {
             return new ArrayList<> ();
         }
+        //降低时间复杂度 如果不使用这种方法则第一重for循环用来循环comments 第二重for循环用来循环通过comments的commentator找到user
 
-        //获取不重复的评论人
+//        //获取不重复的评论人的userId
         Set<Integer> commentators = comments.stream ().map (comment -> comment.getCommentator ()).collect (Collectors.toSet ());
         List<Integer> userId = new ArrayList<> ();
         userId.addAll (commentators);
 
-        //获取评论人转化为map
+        //使用UserId获取user转化为map
         UserExample userExample = new UserExample ();
         userExample.createCriteria ()
                 .andIdIn (userId);
@@ -120,6 +121,15 @@ public class CommentService {
             commentDTO.setUser (userMap.get (comment.getCommentator ()));
             return commentDTO;
         }).collect (Collectors.toList ());
+        //此种方法为常规方法
+//        List<CommentDTO> commentDTOs=new ArrayList<> ();
+//        for (Comment comment : comments) {
+//            CommentDTO commentDTO = new CommentDTO ();
+//            BeanUtils.copyProperties (comment, commentDTO);
+//            User user = userMapper.selectByPrimaryKey (comment.getCommentator ());
+//            commentDTO.setUser (user);
+//            commentDTOs.add (commentDTO);
+//        }
         return commentDTOs;
     }
 }

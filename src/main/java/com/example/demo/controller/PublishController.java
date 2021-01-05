@@ -6,6 +6,7 @@ import com.example.demo.mapper.QuestionMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
 import com.example.demo.model.UserExample;
+import com.example.demo.service.NotificationService;
 import com.example.demo.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,14 +30,17 @@ public class PublishController {
     QuestionMapper questionMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    NotificationService notificationService;
+
     @GetMapping("/publish/{id}")
-    public String edit(@PathVariable(name="id")Integer id,
-                       Model model){
+    public String edit (@PathVariable(name = "id") Integer id,
+                        Model model) {
         QuestionDTO question = questionService.getById (id);
         model.addAttribute ("title", question.getTitle ());
         model.addAttribute ("description", question.getDescription ());
         model.addAttribute ("tag", question.getTag ());
-        model.addAttribute ("id",question.getId ());
+        model.addAttribute ("id", question.getId ());
         return "publish";
     }
 
@@ -50,7 +54,7 @@ public class PublishController {
             @RequestParam("title") String title,
             @RequestParam("description") String description,
             @RequestParam("tag") String tag,
-            @RequestParam(value = "id",required = false) Integer id,
+            @RequestParam(value = "id", required = false) Integer id,
             HttpServletRequest request,
             Model model
     ) {
@@ -80,28 +84,29 @@ public class PublishController {
                     userExample.createCriteria ()
                             .andTokenEqualTo (token);
                     List<User> users = userMapper.selectByExample (userExample);
-                    if (users.size ()!=0) {
-                        user=users.get(0);
+                    if (users.size () != 0) {
                         request.getSession ().setAttribute ("user", users.get (0));
+                        Integer unReadCount = notificationService.getUnreadCount (users.get (0));
+                        request.getSession ().setAttribute ("unReadCount", unReadCount);
                     }
                     break;
                 }
             }
         }
-
-        if (user==null) {
+        user = (User) request.getSession ().getAttribute ("user");
+        if (user == null) {
             model.addAttribute ("error", "用户未登陆");
             return "publish";
         }
         Question question = new Question ();
         question.setTitle (title);
-        question.setCreator  (String .valueOf (user.getId ()));
+        question.setCreator (String.valueOf (user.getId ()));
         question.setDescription (description);
         question.setTag (tag);
         question.setAvatarUrl (user.getAvatarUrl ());
         question.setId (id);
         question.setTimeCreate (System.currentTimeMillis ());
-        questionService.createOrUpdate(question);
+        questionService.createOrUpdate (question);
         return "redirect:/";
     }
 }
