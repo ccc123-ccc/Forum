@@ -77,11 +77,11 @@ public class PublishController {
             model.addAttribute("error","标签不能为空");
             return "publish";
         }
-        String invalid=TagCache.filterInvalid(tag);
-        if(StringUtils.isNotBlank(invalid)){
-            model.addAttribute("error","输入非法标签"+invalid);
-            return "publish";
-        }
+//        String invalid=TagCache.filterInvalid(tag);
+//        if(StringUtils.isNotBlank(invalid)){
+//            model.addAttribute("error","输入非法标签"+invalid);
+//            return "publish";
+//        }
         Question question = new Question();
         question.setTitle(title);
         question.setDescription(description);
