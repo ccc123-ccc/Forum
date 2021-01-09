@@ -38,8 +38,6 @@ public class GithubProvider {
             } catch (IOException e) {
                 e.printStackTrace ();
             }
-
-
         }
         return null;
     }
@@ -49,7 +47,6 @@ public class GithubProvider {
                 .url("https://api.github.com/user")
                 .header("Authorization","token "+AccessToken)
                 .build ();
-
         try {
             Response response = okHttpClient.newCall (request).execute ();
             String string = response.body ().string ();
@@ -59,7 +56,6 @@ public class GithubProvider {
         } catch (IOException e) {
             e.printStackTrace ();
         }
-
-
-    return  null;}
+    return  null;
+    }
 }

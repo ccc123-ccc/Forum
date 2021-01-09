@@ -65,6 +65,7 @@ public class ProfileController {
             PagesDTO pagesDTO = notificationService.list (user.getId (), page, size);
             Integer unReadCount=notificationService.unReadCount();
             model.addAttribute ("section", "replies");
+            System.out.println ();
             model.addAttribute ("sectionName", "最新回复");
             model.addAttribute ("unReadCount", unReadCount);
             model.addAttribute ("pagesList", pagesDTO);
