@@ -345,3 +345,10 @@
 2021-01-09 16:58:10.898  WARN 17552 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-3 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3b095b79 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
 2021-01-09 16:58:10.899  WARN 17552 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-3 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3f1cb441 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
 2021-01-09 16:58:10.899  WARN 17552 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-3 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@72a633b1 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-01-09 17:02:19.591  INFO 18468 --- [main] com.chen.forum.ForumApplicationTests     : Starting ForumApplicationTests using Java 14.0.2 on DESKTOP-09T7FJ9 with PID 18468 (started by 13466 in D:\Javacode\forum)
+2021-01-09 17:02:19.594  INFO 18468 --- [main] com.chen.forum.ForumApplicationTests     : No active profile set, falling back to default profiles: default
+2021-01-09 17:02:19.750  WARN 18468 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-01-09 17:02:21.357  INFO 18468 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-09 17:02:21.471  INFO 18468 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-01-09 17:02:21.799  INFO 18468 --- [main] com.chen.forum.ForumApplicationTests     : Started ForumApplicationTests in 2.493 seconds (JVM running for 3.207)
+2021-01-09 17:02:22.277  INFO 18468 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
